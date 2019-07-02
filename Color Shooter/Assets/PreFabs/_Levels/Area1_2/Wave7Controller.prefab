@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1735112408096774}
+  m_IsPrefabAsset: 1
+--- !u!1 &1735112408096774
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4827283600136368}
+  - component: {fileID: 114957766000001604}
+  m_Layer: 0
+  m_Name: Wave7Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4827283600136368
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1735112408096774}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114957766000001604
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1735112408096774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 752ac5c27e329e34398dbcfe7b16fd0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WaveCombination: 1
+  enemyWaves:
+  - timeToStart: 0
+    wave: {fileID: 1804688689049040, guid: b70d4dc4859f91d488f8be2bab3c662d, type: 2}
+  - timeToStart: 0
+    wave: {fileID: 1597263671222180, guid: e3e8051d8c8b06e47941a1964adaf110, type: 2}
+  - timeToStart: 0
+    wave: {fileID: 1337614895272544, guid: e7acb435e3488b9419096aa82e5f9427, type: 2}
+  - timeToStart: 3
+    wave: {fileID: 1196426826490490, guid: 5ac9bfb7438231444a8705cf0d5d5c90, type: 2}
+  - timeToStart: 3
+    wave: {fileID: 1509070204112014, guid: a97a04ce5069d8f499faf5769c3c878e, type: 2}
+  - timeToStart: 3
+    wave: {fileID: 1505360710249378, guid: b54bdefda7899814da64f4e594d1f569, type: 2}
+  - timeToStart: 6
+    wave: {fileID: 1839134267593724, guid: 8a51f28ee580f7c408437569adca2d83, type: 2}
+  - timeToStart: 6
+    wave: {fileID: 1331699163680708, guid: c401c41ab945a654ebd199b0df2b2cff, type: 2}
+  - timeToStart: 6
+    wave: {fileID: 1141297940729366, guid: 4379d2fd808f60b478a2c480a2b80826, type: 2}

@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1517470689756574}
+  m_IsPrefabAsset: 1
+--- !u!1 &1517470689756574
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4313620283731154}
+  - component: {fileID: 114377912556609846}
+  m_Layer: 0
+  m_Name: Wave7Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4313620283731154
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1517470689756574}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114377912556609846
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1517470689756574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 752ac5c27e329e34398dbcfe7b16fd0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WaveCombination: 1
+  enemyWaves:
+  - timeToStart: 0
+    wave: {fileID: 1759068277910750, guid: 67d711d5a68d6354188d16fa521f9cb2, type: 2}
+  - timeToStart: 0
+    wave: {fileID: 1355485338034964, guid: 77de5212c27e64f4f91f22b51ff407ec, type: 2}
+  - timeToStart: 2.5
+    wave: {fileID: 1176295213615660, guid: 0af8aa3d64e04ae49a9142c9a8737c5d, type: 2}
+  - timeToStart: 2.5
+    wave: {fileID: 1429902966302112, guid: 7118fba0dc3193247be8dba0f3ee8a9c, type: 2}
+  - timeToStart: 5
+    wave: {fileID: 1753005254506676, guid: fe5e1c89c97de7b42b84eeaf55c3c00d, type: 2}
+  - timeToStart: 5
+    wave: {fileID: 1293236167933412, guid: fdb3ef91706a52547b7698face11c443, type: 2}
+  - timeToStart: 3
+    wave: {fileID: 1185568218058796, guid: 01d7fc116feccf24d8d0ef886fef4270, type: 2}
+  - timeToStart: 3
+    wave: {fileID: 1854982869132076, guid: b8b07bfeba2292c4d95983b1adf4a627, type: 2}
+  - timeToStart: 20
+    wave: {fileID: 1493968617538968, guid: ba3b131512b6c7648a6f573c6d002f17, type: 2}
+  - timeToStart: 20.5
+    wave: {fileID: 1614220711839880, guid: 8de5c53fd6096584b85cdf9c5cc8f16b, type: 2}

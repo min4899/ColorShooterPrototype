@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1530798488639756}
+  m_IsPrefabAsset: 1
+--- !u!1 &1530798488639756
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4174876825948108}
+  - component: {fileID: 114436158198675660}
+  m_Layer: 0
+  m_Name: Wave4Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4174876825948108
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1530798488639756}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114436158198675660
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1530798488639756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 752ac5c27e329e34398dbcfe7b16fd0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WaveCombination: 1
+  enemyWaves:
+  - timeToStart: 2
+    wave: {fileID: 1287223785357000, guid: 19efe6f86498c1f419dadfefe2927d0f, type: 2}
+  - timeToStart: 1
+    wave: {fileID: 1546183915573648, guid: 5e6520a624522a748bda614f9fd9ac03, type: 2}
+  - timeToStart: 0
+    wave: {fileID: 1047906570028786, guid: 69074d64a2b3d564a8375a784eaeac2b, type: 2}
+  - timeToStart: 1.5
+    wave: {fileID: 1987599759874722, guid: aee2ae5cc56410f41b4dd01beaed8e89, type: 2}
+  - timeToStart: 0.5
+    wave: {fileID: 1039003585983552, guid: 4498f6bf4d5756c4fab7824c4db4e07f, type: 2}
