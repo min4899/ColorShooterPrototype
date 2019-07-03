@@ -15,6 +15,10 @@ public class EnemyController : MonoBehaviour {
     [Tooltip("Start shooting only after a delay time")]
     public float delay;
 
+    public bool burstFire;
+    public int burstSize;
+    public float burstDelay;
+
     private Transform player; // used for player aiming
 
     // Use this for initialization
@@ -28,8 +32,15 @@ public class EnemyController : MonoBehaviour {
                 player = playerObject.GetComponent<Transform>();
             }
         }
-
-        InvokeRepeating("Fire", delay, fireRate);
+        if(burstFire)
+        {
+            StartCoroutine(BurstFire());
+        }
+        else
+        {
+            InvokeRepeating("Fire", delay, fireRate);
+        }
+        //InvokeRepeating("Fire", delay, fireRate);
     }
 
     // Update is called once per frame
@@ -48,6 +59,20 @@ public class EnemyController : MonoBehaviour {
         for(int i = 0; i < shotSpawn.Length; i++)
         {
             Instantiate(shot, shotSpawn[i].position, shotSpawn[i].rotation);
+        }
+    }
+
+    IEnumerator BurstFire()
+    {
+        yield return new WaitForSeconds(delay);
+        while(gameObject != null)
+        {
+            for (int i = 0; i < burstSize; i++)
+            {
+                Fire();
+                yield return new WaitForSeconds(burstDelay);
+            }
+            yield return new WaitForSeconds(fireRate);
         }
     }
 }

@@ -85,7 +85,16 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        /*
         if (shot != null && Input.GetButton("Fire1") && Time.time > nextFire)
+        {
+            nextFire = Time.time + fireRate;
+            Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+            //GetComponent<AudioSource>().Play();
+        }
+        */
+        //constantly fire
+        if (shot != null && Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
             Instantiate(shot, shotSpawn.position, shotSpawn.rotation);

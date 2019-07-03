@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour {
     // Use this for initialization
     void Start () {
         countDownText.enabled = true;
+        gameOverScreen.SetActive(false);
         StartCoroutine(GetReady());
     }
 

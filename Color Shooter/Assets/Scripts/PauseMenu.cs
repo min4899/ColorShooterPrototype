@@ -17,6 +17,7 @@ public class PauseMenu : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        gameObject.SetActive(true);
         Resume();
         playerControl = player.GetComponent<PlayerControl>();
     }
