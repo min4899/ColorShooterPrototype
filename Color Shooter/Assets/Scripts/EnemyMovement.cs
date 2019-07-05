@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour {
 
+    public float delay = 0;
+    public float verticalSpeed;
+    public float horizontalSpeed;
+    public bool straight = true;
+
+    /*
     public float dodge;
     public float smoothing;
     public Vector2 startWait;
@@ -13,14 +19,35 @@ public class EnemyMovement : MonoBehaviour {
 
     private float currentSpeed;
     private float targetManeuver;
+    */
     private Rigidbody2D rb;
 
     // Use this for initialization
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        currentSpeed = rb.velocity.y;
-        StartCoroutine(Evade());
+        //rb.velocity = transform.up * verticalSpeed; // use negative to down the screen
+
+        //currentSpeed = rb.velocity.y;
+        //StartCoroutine(Evade());
+
+        StartCoroutine(MovementProcess());
+    }
+
+    /*
+    void FixedUpdate()
+    {
+        // For boundaries
+        rb.position = new Vector2
+        (
+            Mathf.Clamp(rb.position.x, boundary.xMin, boundary.xMax),
+            //Mathf.Clamp(rb.position.y, boundary.yMin, boundary.yMax)
+            rb.position.y
+        );
+
+        float newManeuver = Mathf.MoveTowards(rb.velocity.x, targetManeuver, Time.deltaTime * smoothing);
+        rb.velocity = new Vector2(newManeuver, currentSpeed);
+
     }
 
     IEnumerator Evade()
@@ -35,17 +62,13 @@ public class EnemyMovement : MonoBehaviour {
             yield return new WaitForSeconds(Random.Range(maneuverTime.x, maneuverTime.y));
         }
     }
+    */
 
-    void FixedUpdate()
+    IEnumerator MovementProcess()
     {
-        float newManeuver = Mathf.MoveTowards(rb.velocity.x, targetManeuver, Time.deltaTime * smoothing);
-        rb.velocity = new Vector2(newManeuver, currentSpeed);
-
-        // For boundaries
-        rb.position = new Vector2
-        (
-            Mathf.Clamp(rb.position.x, boundary.xMin, boundary.xMax),
-            Mathf.Clamp(rb.position.y, boundary.yMin, boundary.yMax)
-        );
+        // wait 
+        yield return new WaitForSeconds(delay);
+        rb.velocity = transform.right * horizontalSpeed; // positive to go right, negative to go left
+        rb.velocity = transform.up * verticalSpeed; // use negative to down the screen
     }
 }

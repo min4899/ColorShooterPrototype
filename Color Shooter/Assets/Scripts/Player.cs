@@ -9,34 +9,12 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    // Space Shooter Free script
     public GameObject destructionFX;
+    public static Player instance;
 
-    public static Player instance; 
-
-    private void Awake()
-    {
-        if (instance == null) 
-            instance = this;
-    }
-
-    //method for damage proceccing by 'Player'
-    public void GetDamage(int damage)   
-    {
-        Destruction();
-    }    
-
-    //'Player's' destruction procedure
-    void Destruction()
-    {
-        Instantiate(destructionFX, transform.position, Quaternion.identity); //generating destruction visual effect and destroying the 'Player' object
-        Destroy(gameObject);
-    }
-
-
-
-    private GameObject shot;
     public Transform shotSpawn;
+    public int shotDamage = 1;
+    public int contactDamage = 1;
     public float fireRate;
     public float invincibleTime;
     public float vulernableTime;
@@ -44,6 +22,7 @@ public class Player : MonoBehaviour
     [Range(0, 3)]
     public int colorState;
 
+    public Sprite defaultSprite;
     public Sprite red;
     public Sprite yellow;
     public Sprite green;
@@ -54,11 +33,18 @@ public class Player : MonoBehaviour
     public GameObject shield;
     public Material whiteMaterial;
 
+    private GameObject shot;
     private bool shieldOn;
     private float currInvincibleTime;
     private float currVulnerableTime;
     private float nextFire;
     private Material defaultMaterial;
+
+    private void Awake()
+    {
+        if (instance == null) 
+            instance = this;
+    }
 
     void Start()
     {
@@ -100,6 +86,54 @@ public class Player : MonoBehaviour
             Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
             //GetComponent<AudioSource>().Play();
         }
+    }
+
+    //method for damage proceccing by 'Player'
+    public void GetDamage(int damage)
+    {
+        Destruction();
+    }
+
+    //'Player's' destruction procedure
+    void Destruction()
+    {
+        if (destructionFX != null)
+        {
+            Instantiate(destructionFX, transform.position, Quaternion.identity); //generating destruction visual effect
+        }
+        //Instantiate(destructionFX, transform.position, Quaternion.identity); //generating destruction visual effect
+        Destroy(gameObject);
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Boundary") || other.CompareTag("PlayerRedShot") || other.CompareTag("PlayerYellowShot") || other.CompareTag("PlayerGreenShot"))
+        {
+            return;
+        }
+        // Only enemy tag and the 3 enemy shots tags should be left.
+        if (!shieldOn) // If player was hit while shield was down, player is killed.
+        {
+            Destruction();
+        }
+        // NOTE: Contact with an Enemy, see Enemy Script for changing player's state on enemy contact (Line 121).
+        
+        else if (other.CompareTag("EnemyRedShot") && shieldOn)
+        {
+            ChangeToRed();
+            //Destroy(other.gameObject);
+        }
+        else if (other.CompareTag("EnemyYellowShot") && shieldOn)
+        {
+            ChangeToYellow();
+            //Destroy(other.gameObject);
+        }
+        else if (other.CompareTag("EnemyGreenShot") && shieldOn)
+        {
+            ChangeToGreen();
+            //Destroy(other.gameObject);
+        }
+        //gameController.AddScore(scoreValue);
     }
 
     // Short Period of Invincibility after getting hit with shield on.
@@ -150,10 +184,17 @@ public class Player : MonoBehaviour
         shieldOn = true;
     }
 
+    // Following 4 methods processes the taking damage, effect, and changing states.
+    public void ChangeToNeutral()
+    {
+        playerSprite.sprite = defaultSprite;
+        shot = null;
+        colorState = 0;
+        StartCoroutine(Invincible());
+    }
+
     public void ChangeToRed()
     {
-        //StartCoroutine(Invincible());
-        //GetComponent<SpriteRenderer>().sprite = red;
         playerSprite.sprite = red;
         shot = redShot;
         colorState = 1;
@@ -162,8 +203,6 @@ public class Player : MonoBehaviour
 
     public void ChangeToYellow()
     {
-        //StartCoroutine(Invincible());
-        //GetComponent<SpriteRenderer>().sprite = yellow;
         playerSprite.sprite = yellow;
         shot = yellowShot;
         colorState = 2;
@@ -172,8 +211,6 @@ public class Player : MonoBehaviour
 
     public void ChangeToGreen()
     {
-        //StartCoroutine(Invincible());
-        //GetComponent<SpriteRenderer>().sprite = green;
         playerSprite.sprite = green;
         shot = greenShot;
         colorState = 3;

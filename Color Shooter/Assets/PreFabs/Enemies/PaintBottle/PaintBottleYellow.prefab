@@ -52,9 +52,8 @@ GameObject:
   - component: {fileID: 4830210386365506}
   - component: {fileID: 50931182647952496}
   - component: {fileID: 70836461567417208}
-  - component: {fileID: 114822487798352396}
   - component: {fileID: 114255840395330646}
-  - component: {fileID: 114883988664791258}
+  - component: {fileID: 114361685971053264}
   - component: {fileID: 114479881718474516}
   - component: {fileID: 114763340349239516}
   m_Layer: 0
@@ -219,6 +218,25 @@ MonoBehaviour:
     xMax: 0
     yMin: 0
     yMax: 0
+--- !u!114 &114361685971053264
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1250429892706262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27ede04457303ea41844788d1844ee82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 2
+  colorState: 2
+  destructionVFX: {fileID: 0}
+  hitEffect: {fileID: 0}
+  spawnOnDeath: 0
+  DeathOnContact: 0
+  whiteMaterial: {fileID: 2100000, guid: 5cf114d876988c94eac83007ca5e10d7, type: 2}
+  enemySprite: {fileID: 212049736603403500}
 --- !u!114 &114479881718474516
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -239,6 +257,9 @@ MonoBehaviour:
   - {fileID: 4516334099027322}
   fireRate: 2.3
   delay: 1.5
+  burstFire: 0
+  burstSize: 0
+  burstDelay: 0
 --- !u!114 &114763340349239516
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -256,34 +277,6 @@ MonoBehaviour:
   rotationByPath: 0
   loop: 0
   movingIsActive: 0
---- !u!114 &114822487798352396
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1250429892706262}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe541eccac1260840ba461c8f08455f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0
---- !u!114 &114883988664791258
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1250429892706262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0f5cd205e6cb56478b1ff8d118a1d85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colorState: 2
-  health: 2
-  spawnOnDeath: 0
-  whiteMaterial: {fileID: 2100000, guid: 5cf114d876988c94eac83007ca5e10d7, type: 2}
-  enemySprite: {fileID: 212049736603403500}
 --- !u!212 &212049736603403500
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -21,8 +21,7 @@ GameObject:
   - component: {fileID: 4581150866281660}
   - component: {fileID: 70946576047754768}
   - component: {fileID: 50981392232708460}
-  - component: {fileID: 114024382830713344}
-  - component: {fileID: 114008799750254972}
+  - component: {fileID: 114594170131088992}
   m_Layer: 0
   m_Name: PaintBottleRedShot
   m_TagString: EnemyRedShot
@@ -108,7 +107,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0.0010568798, y: 0.0046253167}
   m_Size: {x: 0.11874598, y: 0.12329198}
   m_Direction: 0
---- !u!114 &114008799750254972
+--- !u!114 &114594170131088992
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,21 +115,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1755210951160630}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73b2179c01c6f14429d15ec70761f1a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114024382830713344
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1755210951160630}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe541eccac1260840ba461c8f08455f7, type: 3}
+  m_Script: {fileID: 11500000, guid: 27a3cf1f8ef51304fa6328fdaef77159, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.7
+  enemyBullet: 1
+  destroyedByCollision: 1
 --- !u!212 &212985549716768926
 SpriteRenderer:
   m_ObjectHideFlags: 1

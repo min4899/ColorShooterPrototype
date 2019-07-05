@@ -37,11 +37,11 @@ GameObject:
   - component: {fileID: 4889989694844742}
   - component: {fileID: 50537034461738230}
   - component: {fileID: 70790546851275514}
-  - component: {fileID: 114446308205871234}
+  - component: {fileID: 114286223642703132}
   - component: {fileID: 114258864548848350}
   m_Layer: 0
   m_Name: BrokenPencilRed
-  m_TagString: EnemyRedShot
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotateSpeed: 100
   speed: 1.5
---- !u!114 &114446308205871234
+--- !u!114 &114286223642703132
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,11 +129,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1765089775599212}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0f5cd205e6cb56478b1ff8d118a1d85, type: 3}
+  m_Script: {fileID: 11500000, guid: 27ede04457303ea41844788d1844ee82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorState: 1
   health: 3
+  colorState: 1
+  destructionVFX: {fileID: 0}
+  hitEffect: {fileID: 0}
+  spawnOnDeath: 0
+  DeathOnContact: 1
   whiteMaterial: {fileID: 2100000, guid: 5cf114d876988c94eac83007ca5e10d7, type: 2}
   enemySprite: {fileID: 212656822381795204}
 --- !u!212 &212656822381795204

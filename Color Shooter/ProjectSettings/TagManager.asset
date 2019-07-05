@@ -10,9 +10,9 @@ TagManager:
   - PlayerYellowShot
   - EnemyRedShot
   - EnemyYellowShot
-  - Boss
   - PlayerGreenShot
   - EnemyGreenShot
+  - Boss
   layers:
   - Default
   - TransparentFX

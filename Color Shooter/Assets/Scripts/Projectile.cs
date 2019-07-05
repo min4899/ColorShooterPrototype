@@ -8,26 +8,38 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour {
 
-    [Tooltip("Damage which a projectile deals to another object. Integer")]
-    public int damage;
+    public float speed; // from mover script
+
+    //[Tooltip("Damage which a projectile deals to another object. Integer")]
+    //public int damage;
 
     [Tooltip("Whether the projectile belongs to the ‘Enemy’ or to the ‘Player’")]
-    public bool enemyBullet;
+    public bool enemyBullet = true;
 
     [Tooltip("Whether the projectile is destroyed in the collision, or not")]
-    public bool destroyedByCollision;
+    public bool destroyedByCollision = true;
+
+    private Rigidbody2D rb; // from mover script
+                            
+    // Use this for initialization
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        //rb.velocity = transform.up * speed * Time.deltaTime;
+        rb.velocity = transform.up * speed;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision) //when a projectile collides with another object
     {
-        if (enemyBullet && collision.tag == "Player") //if anoter object is 'player' or 'enemy sending the command of receiving the damage
+        if (enemyBullet && collision.tag == "Player") // shots will only be destoryed if it hits player or enemy
         {
-            Player.instance.GetDamage(damage); 
+            //Player.instance.GetDamage(damage); 
             if (destroyedByCollision)
                 Destruction();
         }
         else if (!enemyBullet && collision.tag == "Enemy")
         {
-            collision.GetComponent<Enemy>().GetDamage(damage);
+            //collision.GetComponent<Enemy>().GetDamage(damage);
             if (destroyedByCollision)
                 Destruction();
         }

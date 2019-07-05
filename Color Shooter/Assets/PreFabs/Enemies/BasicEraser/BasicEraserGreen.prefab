@@ -37,11 +37,11 @@ GameObject:
   - component: {fileID: 4179832371205804}
   - component: {fileID: 50612579831561048}
   - component: {fileID: 61281958057952968}
-  - component: {fileID: 114214083270866462}
+  - component: {fileID: 114474634524943942}
   - component: {fileID: 114496717316141676}
   m_Layer: 0
   m_Name: BasicEraserGreen
-  m_TagString: EnemyGreenShot
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,7 +118,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.19759405, y: 0.31062913}
   m_EdgeRadius: 0
---- !u!114 &114214083270866462
+--- !u!114 &114474634524943942
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,11 +126,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1583551728945900}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0f5cd205e6cb56478b1ff8d118a1d85, type: 3}
+  m_Script: {fileID: 11500000, guid: 27ede04457303ea41844788d1844ee82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 1
   colorState: 3
-  health: 2
+  destructionVFX: {fileID: 0}
+  hitEffect: {fileID: 0}
+  spawnOnDeath: 0
+  DeathOnContact: 1
   whiteMaterial: {fileID: 2100000, guid: 5cf114d876988c94eac83007ca5e10d7, type: 2}
   enemySprite: {fileID: 212892052995956630}
 --- !u!114 &114496717316141676

@@ -37,11 +37,11 @@ GameObject:
   - component: {fileID: 4282084917350828}
   - component: {fileID: 50364137049471070}
   - component: {fileID: 70404438504378780}
-  - component: {fileID: 114183938747516152}
+  - component: {fileID: 114405941410232738}
   - component: {fileID: 114494051412649670}
   m_Layer: 0
   m_Name: BrokenPencilGreen
-  m_TagString: EnemyGreenShot
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,7 +108,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0.004398957, y: -0.008797735}
   m_Size: {x: 0.092657864, y: 0.3477952}
   m_Direction: 0
---- !u!114 &114183938747516152
+--- !u!114 &114405941410232738
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,11 +116,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1601313077837840}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0f5cd205e6cb56478b1ff8d118a1d85, type: 3}
+  m_Script: {fileID: 11500000, guid: 27ede04457303ea41844788d1844ee82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorState: 3
   health: 3
+  colorState: 3
+  destructionVFX: {fileID: 0}
+  hitEffect: {fileID: 0}
+  spawnOnDeath: 0
+  DeathOnContact: 1
   whiteMaterial: {fileID: 2100000, guid: 5cf114d876988c94eac83007ca5e10d7, type: 2}
   enemySprite: {fileID: 212478416565801128}
 --- !u!114 &114494051412649670

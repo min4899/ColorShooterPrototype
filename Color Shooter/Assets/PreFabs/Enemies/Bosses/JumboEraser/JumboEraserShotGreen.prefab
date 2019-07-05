@@ -37,8 +37,7 @@ GameObject:
   - component: {fileID: 4456475026265810}
   - component: {fileID: 50157503049472154}
   - component: {fileID: 70264106235682564}
-  - component: {fileID: 114091527871575120}
-  - component: {fileID: 114546645458393590}
+  - component: {fileID: 114448365271523006}
   m_Layer: 0
   m_Name: JumboEraserShotGreen
   m_TagString: EnemyGreenShot
@@ -108,7 +107,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0.0013934597, y: -0.009876847}
   m_Size: {x: 0.05994931, y: 0.21036983}
   m_Direction: 0
---- !u!114 &114091527871575120
+--- !u!114 &114448365271523006
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,21 +115,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1954590182354082}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73b2179c01c6f14429d15ec70761f1a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114546645458393590
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1954590182354082}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe541eccac1260840ba461c8f08455f7, type: 3}
+  m_Script: {fileID: 11500000, guid: 27a3cf1f8ef51304fa6328fdaef77159, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+  enemyBullet: 1
+  destroyedByCollision: 1
 --- !u!212 &212479334906219916
 SpriteRenderer:
   m_ObjectHideFlags: 1

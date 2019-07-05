@@ -21,11 +21,11 @@ GameObject:
   - component: {fileID: 4204152797822682}
   - component: {fileID: 50567077409425742}
   - component: {fileID: 70089144115461104}
-  - component: {fileID: 114959844181798476}
+  - component: {fileID: 114348794477621212}
   - component: {fileID: 114190119129828470}
   m_Layer: 0
   m_Name: BrokenPencilYellow
-  m_TagString: EnemyYellowShot
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotateSpeed: 100
   speed: 1.5
---- !u!114 &114959844181798476
+--- !u!114 &114348794477621212
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,11 +129,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1559199338253244}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0f5cd205e6cb56478b1ff8d118a1d85, type: 3}
+  m_Script: {fileID: 11500000, guid: 27ede04457303ea41844788d1844ee82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorState: 2
   health: 3
+  colorState: 2
+  destructionVFX: {fileID: 0}
+  hitEffect: {fileID: 0}
+  spawnOnDeath: 0
+  DeathOnContact: 1
   whiteMaterial: {fileID: 2100000, guid: 5cf114d876988c94eac83007ca5e10d7, type: 2}
   enemySprite: {fileID: 212395406838292714}
 --- !u!212 &212395406838292714

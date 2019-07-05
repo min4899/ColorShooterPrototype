@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class SpawnOnDeath : MonoBehaviour {
 
-    public GameObject[] spawnItems;
-
     [Tooltip("If the object will spawn relative to parent object's position")]
     public bool spawnOnParent;
+
+    public GameObject[] spawnItems;
 
 	// Use this for initialization
 	void Start () {
@@ -25,7 +25,7 @@ public class SpawnOnDeath : MonoBehaviour {
         {
             if(spawnOnParent)
             {
-                Vector3 parentPosition = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
+                Vector2 parentPosition = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
                 Instantiate(item, parentPosition, gameObject.transform.rotation);
             }
             else

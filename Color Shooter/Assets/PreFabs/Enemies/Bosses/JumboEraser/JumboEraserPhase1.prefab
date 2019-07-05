@@ -113,12 +113,12 @@ GameObject:
   - component: {fileID: 50433139337314452}
   - component: {fileID: 60291935419756592}
   - component: {fileID: 114599006704084112}
-  - component: {fileID: 114500574252162270}
+  - component: {fileID: 114733912844943450}
   - component: {fileID: 114112695761769712}
   - component: {fileID: 114385016896560242}
   m_Layer: 0
   m_Name: JumboEraserPhase1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -297,26 +297,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94c91f4eaf0e60e4fbbc22b312c4d8e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnOnParent: 0
   spawnItems:
   - {fileID: 1058626128818772, guid: b59cc72c2f994604a9d7dfa4bf753cf4, type: 2}
   - {fileID: 1582111347862192, guid: ae249cb8254ba134c8f49d360d318dcb, type: 2}
-  spawnOnParent: 0
---- !u!114 &114500574252162270
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1969922015083300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0f5cd205e6cb56478b1ff8d118a1d85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colorState: 3
-  health: 55
-  spawnOnDeath: 1
-  whiteMaterial: {fileID: 2100000, guid: 5cf114d876988c94eac83007ca5e10d7, type: 2}
-  enemySprite: {fileID: 212139390046338426}
 --- !u!114 &114599006704084112
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -339,6 +323,28 @@ MonoBehaviour:
   - {fileID: 4595407996702520}
   fireRate: 1
   delay: 1.5
+  burstFire: 0
+  burstSize: 0
+  burstDelay: 0
+--- !u!114 &114733912844943450
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1969922015083300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27ede04457303ea41844788d1844ee82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 55
+  colorState: 3
+  destructionVFX: {fileID: 0}
+  hitEffect: {fileID: 0}
+  spawnOnDeath: 1
+  DeathOnContact: 0
+  whiteMaterial: {fileID: 2100000, guid: 5cf114d876988c94eac83007ca5e10d7, type: 2}
+  enemySprite: {fileID: 212139390046338426}
 --- !u!212 &212139390046338426
 SpriteRenderer:
   m_ObjectHideFlags: 1

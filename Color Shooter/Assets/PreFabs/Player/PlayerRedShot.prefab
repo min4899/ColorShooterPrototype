@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 4512281880493922}
   - component: {fileID: 50907694995386012}
   - component: {fileID: 70861751700997444}
-  - component: {fileID: 114150518289434096}
+  - component: {fileID: 114324804063842870}
   m_Layer: 0
   m_Name: PlayerRedShot
   m_TagString: PlayerRedShot
@@ -107,7 +107,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0.00071456097, y: 0.0040351152}
   m_Size: {x: 0.04853735, y: 0.17094012}
   m_Direction: 0
---- !u!114 &114150518289434096
+--- !u!114 &114324804063842870
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,10 +115,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1525893094675144}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe541eccac1260840ba461c8f08455f7, type: 3}
+  m_Script: {fileID: 11500000, guid: 27a3cf1f8ef51304fa6328fdaef77159, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 9
+  enemyBullet: 0
+  destroyedByCollision: 1
 --- !u!212 &212022257638588226
 SpriteRenderer:
   m_ObjectHideFlags: 1

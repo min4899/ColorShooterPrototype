@@ -52,11 +52,11 @@ GameObject:
   - component: {fileID: 50424344233058382}
   - component: {fileID: 60253899627204092}
   - component: {fileID: 114426409888004068}
-  - component: {fileID: 114211531549809236}
+  - component: {fileID: 114262261775679992}
   - component: {fileID: 114393049967841460}
   m_Layer: 0
   m_Name: JumboEraserPhase3
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -210,7 +210,7 @@ PolygonCollider2D:
       - {x: -0.14970648, y: -0.92434645}
       - {x: 0.15479624, y: -0.9236193}
       - {x: 0.29066646, y: -0.31717527}
---- !u!114 &114211531549809236
+--- !u!114 &114262261775679992
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -218,12 +218,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1767077359158938}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0f5cd205e6cb56478b1ff8d118a1d85, type: 3}
+  m_Script: {fileID: 11500000, guid: 27ede04457303ea41844788d1844ee82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorState: 1
   health: 35
+  colorState: 1
+  destructionVFX: {fileID: 0}
+  hitEffect: {fileID: 0}
   spawnOnDeath: 0
+  DeathOnContact: 0
   whiteMaterial: {fileID: 2100000, guid: 5cf114d876988c94eac83007ca5e10d7, type: 2}
   enemySprite: {fileID: 212035902474550096}
 --- !u!114 &114393049967841460
@@ -263,6 +266,9 @@ MonoBehaviour:
   - {fileID: 4696291033897810}
   fireRate: 2
   delay: 1.5
+  burstFire: 0
+  burstSize: 0
+  burstDelay: 0
 --- !u!212 &212035902474550096
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -10,7 +10,10 @@ public class FollowThePath : MonoBehaviour {
 
     [Tooltip("if object can use its own movement after reaching end of path")]
     public bool freeMove;
-        
+
+    //test
+    //[HideInInspector] public GameObject nextMovement;
+
     [HideInInspector] public Transform [] path; //path points which passes the 'Enemy' 
     [HideInInspector] public float speed; 
     [HideInInspector] public bool rotationByPath;   //whether 'Enemy' rotates in path direction or not
@@ -57,7 +60,8 @@ public class FollowThePath : MonoBehaviour {
                     //Destroy(gameObject);
                     if(freeMove)
                     {
-                        GetComponent<FollowThePath>().enabled = false; // if its a homing attack, disable follow path after completing it.
+                        GetComponent<FollowThePath>().enabled = false;
+                        //GameObject nextMovement;
                     }
                 }
             }

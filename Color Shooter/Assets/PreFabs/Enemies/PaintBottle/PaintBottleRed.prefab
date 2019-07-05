@@ -36,9 +36,7 @@ GameObject:
   - component: {fileID: 4322315483756264}
   - component: {fileID: 50122653398603068}
   - component: {fileID: 70538260234630996}
-  - component: {fileID: 114491884490685416}
-  - component: {fileID: 114620220226809326}
-  - component: {fileID: 114644987250571852}
+  - component: {fileID: 114829537678153726}
   - component: {fileID: 114663894203479826}
   - component: {fileID: 114689788892767746}
   m_Layer: 0
@@ -198,55 +196,6 @@ CapsuleCollider2D:
   m_Offset: {x: -0.012107834, y: 0.024044633}
   m_Size: {x: 0.24974993, y: 0.4313271}
   m_Direction: 0
---- !u!114 &114491884490685416
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1614036884808930}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe541eccac1260840ba461c8f08455f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0
---- !u!114 &114620220226809326
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1614036884808930}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb3cba2255221e44a8d3c7d98b25bc38, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dodge: 0
-  smoothing: 0
-  startWait: {x: 0, y: 0}
-  maneuverTime: {x: 0, y: 0}
-  maneuverWait: {x: 0, y: 0}
-  boundary:
-    xMin: 0
-    xMax: 0
-    yMin: 0
-    yMax: 0
---- !u!114 &114644987250571852
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1614036884808930}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0f5cd205e6cb56478b1ff8d118a1d85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colorState: 1
-  health: 2
-  spawnOnDeath: 0
-  whiteMaterial: {fileID: 2100000, guid: 5cf114d876988c94eac83007ca5e10d7, type: 2}
-  enemySprite: {fileID: 212931800195690256}
 --- !u!114 &114663894203479826
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -267,6 +216,9 @@ MonoBehaviour:
   - {fileID: 4954860750247490}
   fireRate: 2.3
   delay: 1.5
+  burstFire: 0
+  burstSize: 0
+  burstDelay: 0
 --- !u!114 &114689788892767746
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -284,6 +236,25 @@ MonoBehaviour:
   rotationByPath: 0
   loop: 0
   movingIsActive: 0
+--- !u!114 &114829537678153726
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1614036884808930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27ede04457303ea41844788d1844ee82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 2
+  colorState: 1
+  destructionVFX: {fileID: 0}
+  hitEffect: {fileID: 0}
+  spawnOnDeath: 0
+  DeathOnContact: 0
+  whiteMaterial: {fileID: 2100000, guid: 5cf114d876988c94eac83007ca5e10d7, type: 2}
+  enemySprite: {fileID: 212931800195690256}
 --- !u!212 &212931800195690256
 SpriteRenderer:
   m_ObjectHideFlags: 1

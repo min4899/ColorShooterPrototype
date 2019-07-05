@@ -52,9 +52,8 @@ GameObject:
   - component: {fileID: 4816803928550230}
   - component: {fileID: 50240621841316386}
   - component: {fileID: 70944442838479854}
-  - component: {fileID: 114975397598131568}
   - component: {fileID: 114241174272935440}
-  - component: {fileID: 114609282194136962}
+  - component: {fileID: 114957706459776060}
   - component: {fileID: 114619969475122712}
   - component: {fileID: 114207633188764514}
   m_Layer: 0
@@ -178,21 +177,6 @@ MonoBehaviour:
     xMax: 0
     yMin: 0
     yMax: 0
---- !u!114 &114609282194136962
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1955732010549196}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0f5cd205e6cb56478b1ff8d118a1d85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colorState: 2
-  health: 2
-  whiteMaterial: {fileID: 2100000, guid: 5cf114d876988c94eac83007ca5e10d7, type: 2}
-  enemySprite: {fileID: 212123917098292484}
 --- !u!114 &114619969475122712
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -211,18 +195,28 @@ MonoBehaviour:
   - {fileID: 4269884965498702}
   fireRate: 1.5
   delay: 1.5
---- !u!114 &114975397598131568
+  burstFire: 0
+  burstSize: 0
+  burstDelay: 0
+--- !u!114 &114957706459776060
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1955732010549196}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe541eccac1260840ba461c8f08455f7, type: 3}
+  m_Script: {fileID: 11500000, guid: 27ede04457303ea41844788d1844ee82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  health: 2
+  colorState: 2
+  destructionVFX: {fileID: 0}
+  hitEffect: {fileID: 0}
+  spawnOnDeath: 0
+  DeathOnContact: 0
+  whiteMaterial: {fileID: 2100000, guid: 5cf114d876988c94eac83007ca5e10d7, type: 2}
+  enemySprite: {fileID: 212123917098292484}
 --- !u!212 &212123917098292484
 SpriteRenderer:
   m_ObjectHideFlags: 1

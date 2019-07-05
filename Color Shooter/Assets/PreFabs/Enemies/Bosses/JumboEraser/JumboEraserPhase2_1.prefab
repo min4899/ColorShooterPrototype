@@ -98,12 +98,12 @@ GameObject:
   - component: {fileID: 50233368925354574}
   - component: {fileID: 60037671501092248}
   - component: {fileID: 114645594988779964}
-  - component: {fileID: 114045688078161430}
+  - component: {fileID: 114206916479436764}
   - component: {fileID: 114216783564885022}
   - component: {fileID: 114513562268458374}
   m_Layer: 0
   m_Name: JumboEraserPhase2_1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -240,7 +240,7 @@ PolygonCollider2D:
       - {x: -0.28214043, y: -1.1140378}
       - {x: 0.2854442, y: -1.1196222}
       - {x: 0.5131969, y: -0.11485934}
---- !u!114 &114045688078161430
+--- !u!114 &114206916479436764
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -248,12 +248,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1969468876070088}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0f5cd205e6cb56478b1ff8d118a1d85, type: 3}
+  m_Script: {fileID: 11500000, guid: 27ede04457303ea41844788d1844ee82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorState: 2
   health: 45
+  colorState: 2
+  destructionVFX: {fileID: 0}
+  hitEffect: {fileID: 0}
   spawnOnDeath: 1
+  DeathOnContact: 0
   whiteMaterial: {fileID: 2100000, guid: 5cf114d876988c94eac83007ca5e10d7, type: 2}
   enemySprite: {fileID: 212387307747015904}
 --- !u!114 &114216783564885022
@@ -284,10 +287,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94c91f4eaf0e60e4fbbc22b312c4d8e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnOnParent: 0
   spawnItems:
   - {fileID: 1585255075064200, guid: 6b438d6f753b4d644befb810f222060e, type: 2}
   - {fileID: 1780325758379108, guid: 41a1bf2f2e590a1468342f82815f4572, type: 2}
-  spawnOnParent: 0
 --- !u!114 &114645594988779964
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -309,6 +312,9 @@ MonoBehaviour:
   - {fileID: 4528728273262944}
   fireRate: 1.5
   delay: 1.5
+  burstFire: 0
+  burstSize: 0
+  burstDelay: 0
 --- !u!212 &212387307747015904
 SpriteRenderer:
   m_ObjectHideFlags: 1

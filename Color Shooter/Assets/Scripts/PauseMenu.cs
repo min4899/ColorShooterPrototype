@@ -13,19 +13,18 @@ public class PauseMenu : MonoBehaviour {
     public GameObject player;
 
     private PlayerControl playerControl;
-    private Transform playerLocation;
 
     // Use this for initialization
     void Start () {
-        gameObject.SetActive(true);
+        //gameObject.SetActive(false);
         Resume();
         playerControl = player.GetComponent<PlayerControl>();
     }
 	
 	// Update is called once per frame
 	void Update () {
-
-		if(Input.GetKeyDown(KeyCode.Escape))
+#if UNITY_STANDALONE || UNITY_EDITOR
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             if(GameIsPaused)
             {
@@ -36,11 +35,12 @@ public class PauseMenu : MonoBehaviour {
                 Pause();
             }
         }
-	}
+#endif
+    }
 
     public void Resume()
     {
-        if(Input.touchCount == 1)
+        if (Input.touchCount == 1)
         {
             pauseMenuUI.SetActive(false);
             Time.timeScale = 1f;

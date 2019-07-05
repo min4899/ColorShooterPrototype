@@ -21,8 +21,7 @@ GameObject:
   - component: {fileID: 4850151896382420}
   - component: {fileID: 70188287076667194}
   - component: {fileID: 50064620243464246}
-  - component: {fileID: 114742040868349728}
-  - component: {fileID: 114738524562479530}
+  - component: {fileID: 114113448722725348}
   m_Layer: 0
   m_Name: PaintBottleGreenShot
   m_TagString: EnemyGreenShot
@@ -108,7 +107,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0.0010568798, y: 0.0046253167}
   m_Size: {x: 0.11874598, y: 0.12329198}
   m_Direction: 0
---- !u!114 &114738524562479530
+--- !u!114 &114113448722725348
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,21 +115,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1464597617282452}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73b2179c01c6f14429d15ec70761f1a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114742040868349728
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1464597617282452}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe541eccac1260840ba461c8f08455f7, type: 3}
+  m_Script: {fileID: 11500000, guid: 27a3cf1f8ef51304fa6328fdaef77159, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.7
+  enemyBullet: 1
+  destroyedByCollision: 1
 --- !u!212 &212774385238516830
 SpriteRenderer:
   m_ObjectHideFlags: 1

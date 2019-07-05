@@ -82,9 +82,8 @@ GameObject:
   - component: {fileID: 4786079695169994}
   - component: {fileID: 50832485625446612}
   - component: {fileID: 70012050636272602}
-  - component: {fileID: 114040665625492482}
   - component: {fileID: 114949461449917360}
-  - component: {fileID: 114378220013139400}
+  - component: {fileID: 114527233057551076}
   - component: {fileID: 114164526257411224}
   - component: {fileID: 114407753996443738}
   m_Layer: 0
@@ -198,18 +197,6 @@ CapsuleCollider2D:
   m_Offset: {x: -0.012107834, y: 0.024044633}
   m_Size: {x: 0.24974993, y: 0.4313271}
   m_Direction: 0
---- !u!114 &114040665625492482
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1809714692107246}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe541eccac1260840ba461c8f08455f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0
 --- !u!114 &114164526257411224
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -230,22 +217,9 @@ MonoBehaviour:
   - {fileID: 4431536197519920}
   fireRate: 2.3
   delay: 1.5
---- !u!114 &114378220013139400
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1809714692107246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0f5cd205e6cb56478b1ff8d118a1d85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colorState: 3
-  health: 2
-  spawnOnDeath: 0
-  whiteMaterial: {fileID: 2100000, guid: 5cf114d876988c94eac83007ca5e10d7, type: 2}
-  enemySprite: {fileID: 212010167286035302}
+  burstFire: 0
+  burstSize: 0
+  burstDelay: 0
 --- !u!114 &114407753996443738
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -263,6 +237,25 @@ MonoBehaviour:
   rotationByPath: 0
   loop: 0
   movingIsActive: 0
+--- !u!114 &114527233057551076
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1809714692107246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27ede04457303ea41844788d1844ee82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 2
+  colorState: 3
+  destructionVFX: {fileID: 0}
+  hitEffect: {fileID: 0}
+  spawnOnDeath: 0
+  DeathOnContact: 0
+  whiteMaterial: {fileID: 2100000, guid: 5cf114d876988c94eac83007ca5e10d7, type: 2}
+  enemySprite: {fileID: 212010167286035302}
 --- !u!114 &114949461449917360
 MonoBehaviour:
   m_ObjectHideFlags: 1
