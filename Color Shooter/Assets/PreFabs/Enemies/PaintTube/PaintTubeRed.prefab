@@ -52,10 +52,10 @@ GameObject:
   - component: {fileID: 4016090717850910}
   - component: {fileID: 50672626412540438}
   - component: {fileID: 70687986230364504}
-  - component: {fileID: 114083844658280570}
   - component: {fileID: 114206970993403290}
   - component: {fileID: 114221948539977318}
   - component: {fileID: 114773008111762584}
+  - component: {fileID: 114413673081176022}
   m_Layer: 0
   m_Name: PaintTubeRed
   m_TagString: Enemy
@@ -139,27 +139,6 @@ CapsuleCollider2D:
   m_Offset: {x: -0.014507171, y: 0.02939862}
   m_Size: {x: 0.25842828, y: 0.39526498}
   m_Direction: 0
---- !u!114 &114083844658280570
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1579650419009050}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb3cba2255221e44a8d3c7d98b25bc38, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dodge: 0
-  smoothing: 0
-  startWait: {x: 0, y: 0}
-  maneuverTime: {x: 0, y: 0}
-  maneuverWait: {x: 0, y: 0}
-  boundary:
-    xMin: 0
-    xMax: 0
-    yMin: 0
-    yMax: 0
 --- !u!114 &114206970993403290
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -176,6 +155,7 @@ MonoBehaviour:
   destructionVFX: {fileID: 0}
   hitEffect: {fileID: 0}
   spawnOnDeath: 0
+  fireOnDeath: 0
   DeathOnContact: 0
   whiteMaterial: {fileID: 2100000, guid: 5cf114d876988c94eac83007ca5e10d7, type: 2}
   enemySprite: {fileID: 212909216879775888}
@@ -195,11 +175,30 @@ MonoBehaviour:
   aimTransform: {fileID: 4480291855099130}
   shotSpawn:
   - {fileID: 4480291855099130}
-  fireRate: 1.5
+  fireRate: 2
   delay: 1.5
   burstFire: 0
   burstSize: 0
   burstDelay: 0
+  deathSpawn: []
+  deathShot: {fileID: 0}
+--- !u!114 &114413673081176022
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1579650419009050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ac12a7b87b55864eb334f7555c3511c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  path: []
+  speed: 0
+  rotationByPath: 0
+  loop: 0
+  movingIsActive: 0
+  delay: 0
 --- !u!114 &114773008111762584
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -211,11 +210,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31e909c6d6aa8e64ebc12136b1ffa564, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  freeMove: 0
+  nextMovement: {fileID: 0}
+  nextMoveDelay: 0
+  nextMoveSpeed: 0
+  scaleX: 0
+  scaleY: 0
   path: []
   speed: 0
   rotationByPath: 0
   loop: 0
+  currentPathPercent: 0
+  pathPositions: []
   movingIsActive: 0
 --- !u!212 &212909216879775888
 SpriteRenderer:

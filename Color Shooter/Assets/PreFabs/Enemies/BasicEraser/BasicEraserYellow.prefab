@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 61316538950264032}
   - component: {fileID: 114638351839007948}
   - component: {fileID: 114302514151361382}
+  - component: {fileID: 114447404025686638}
   m_Layer: 0
   m_Name: BasicEraserYellow
   m_TagString: Enemy
@@ -129,12 +130,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31e909c6d6aa8e64ebc12136b1ffa564, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  freeMove: 0
+  nextMovement: {fileID: 0}
+  nextMoveDelay: 0
+  nextMoveSpeed: 0
+  scaleX: 0
+  scaleY: 0
   path: []
   speed: 0
   rotationByPath: 0
   loop: 0
   movingIsActive: 0
+--- !u!114 &114447404025686638
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1432462304673700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ac12a7b87b55864eb334f7555c3511c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  path: []
+  speed: 0
+  rotationByPath: 0
+  loop: 0
+  movingIsActive: 0
+  delay: 0
 --- !u!114 &114638351839007948
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -151,6 +173,7 @@ MonoBehaviour:
   destructionVFX: {fileID: 0}
   hitEffect: {fileID: 0}
   spawnOnDeath: 0
+  fireOnDeath: 0
   DeathOnContact: 0
   whiteMaterial: {fileID: 2100000, guid: 5cf114d876988c94eac83007ca5e10d7, type: 2}
   enemySprite: {fileID: 212918468038890502}

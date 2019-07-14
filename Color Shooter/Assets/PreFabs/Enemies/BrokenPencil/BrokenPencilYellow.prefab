@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 70089144115461104}
   - component: {fileID: 114348794477621212}
   - component: {fileID: 114190119129828470}
+  - component: {fileID: 114212709963395236}
   m_Layer: 0
   m_Name: BrokenPencilYellow
   m_TagString: Enemy
@@ -68,7 +69,7 @@ Transform:
   m_GameObject: {fileID: 1726909045551316}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3, y: 1.2, z: 1}
   m_Children: []
   m_Father: {fileID: 4204152797822682}
   m_RootOrder: 0
@@ -105,8 +106,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.004398957, y: -0.008797735}
-  m_Size: {x: 0.092657864, y: 0.3477952}
+  m_Offset: {x: 0.002235949, y: -0.017449617}
+  m_Size: {x: 0.11428785, y: 0.33914328}
   m_Direction: 0
 --- !u!114 &114190119129828470
 MonoBehaviour:
@@ -121,6 +122,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotateSpeed: 100
   speed: 1.5
+  limit: 1
+  timer: 4
+--- !u!114 &114212709963395236
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1559199338253244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31e909c6d6aa8e64ebc12136b1ffa564, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextMovement: {fileID: 0}
+  nextMoveDelay: 0
+  nextMoveSpeed: 0
+  scaleX: 0
+  scaleY: 0
+  path: []
+  speed: 0
+  rotationByPath: 0
+  loop: 0
+  currentPathPercent: 0
+  pathPositions: []
+  movingIsActive: 0
 --- !u!114 &114348794477621212
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -137,6 +163,7 @@ MonoBehaviour:
   destructionVFX: {fileID: 0}
   hitEffect: {fileID: 0}
   spawnOnDeath: 0
+  fireOnDeath: 0
   DeathOnContact: 1
   whiteMaterial: {fileID: 2100000, guid: 5cf114d876988c94eac83007ca5e10d7, type: 2}
   enemySprite: {fileID: 212395406838292714}

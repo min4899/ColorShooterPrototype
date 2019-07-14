@@ -52,10 +52,10 @@ GameObject:
   - component: {fileID: 4816803928550230}
   - component: {fileID: 50240621841316386}
   - component: {fileID: 70944442838479854}
-  - component: {fileID: 114241174272935440}
   - component: {fileID: 114957706459776060}
   - component: {fileID: 114619969475122712}
   - component: {fileID: 114207633188764514}
+  - component: {fileID: 114462083628070274}
   m_Layer: 0
   m_Name: PaintTubeYellow
   m_TagString: Enemy
@@ -150,33 +150,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31e909c6d6aa8e64ebc12136b1ffa564, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  freeMove: 0
+  nextMovement: {fileID: 0}
+  nextMoveDelay: 0
+  nextMoveSpeed: 0
+  scaleX: 0
+  scaleY: 0
   path: []
   speed: 0
   rotationByPath: 0
   loop: 0
+  currentPathPercent: 0
+  pathPositions: []
   movingIsActive: 0
---- !u!114 &114241174272935440
+--- !u!114 &114462083628070274
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1955732010549196}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb3cba2255221e44a8d3c7d98b25bc38, type: 3}
+  m_Script: {fileID: 11500000, guid: 5ac12a7b87b55864eb334f7555c3511c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dodge: 0
-  smoothing: 0
-  startWait: {x: 0, y: 0}
-  maneuverTime: {x: 0, y: 0}
-  maneuverWait: {x: 0, y: 0}
-  boundary:
-    xMin: 0
-    xMax: 0
-    yMin: 0
-    yMax: 0
+  path: []
+  speed: 0
+  rotationByPath: 0
+  loop: 0
+  movingIsActive: 0
+  delay: 0
 --- !u!114 &114619969475122712
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -193,11 +195,13 @@ MonoBehaviour:
   aimTransform: {fileID: 4269884965498702}
   shotSpawn:
   - {fileID: 4269884965498702}
-  fireRate: 1.5
+  fireRate: 2
   delay: 1.5
   burstFire: 0
   burstSize: 0
   burstDelay: 0
+  deathSpawn: []
+  deathShot: {fileID: 0}
 --- !u!114 &114957706459776060
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -214,6 +218,7 @@ MonoBehaviour:
   destructionVFX: {fileID: 0}
   hitEffect: {fileID: 0}
   spawnOnDeath: 0
+  fireOnDeath: 0
   DeathOnContact: 0
   whiteMaterial: {fileID: 2100000, guid: 5cf114d876988c94eac83007ca5e10d7, type: 2}
   enemySprite: {fileID: 212123917098292484}

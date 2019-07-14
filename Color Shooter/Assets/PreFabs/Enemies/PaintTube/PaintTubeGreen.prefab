@@ -52,10 +52,10 @@ GameObject:
   - component: {fileID: 4839560159515594}
   - component: {fileID: 50284632621625194}
   - component: {fileID: 70556837599251414}
-  - component: {fileID: 114680142139840246}
   - component: {fileID: 114023821541355160}
   - component: {fileID: 114583603441149630}
   - component: {fileID: 114445792545487838}
+  - component: {fileID: 114298405868473060}
   m_Layer: 0
   m_Name: PaintTubeGreen
   m_TagString: Enemy
@@ -155,9 +155,27 @@ MonoBehaviour:
   destructionVFX: {fileID: 0}
   hitEffect: {fileID: 0}
   spawnOnDeath: 0
+  fireOnDeath: 0
   DeathOnContact: 0
   whiteMaterial: {fileID: 2100000, guid: 5cf114d876988c94eac83007ca5e10d7, type: 2}
   enemySprite: {fileID: 212495109814423644}
+--- !u!114 &114298405868473060
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1434057391502184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ac12a7b87b55864eb334f7555c3511c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  path: []
+  speed: 0
+  rotationByPath: 0
+  loop: 0
+  movingIsActive: 0
+  delay: 0
 --- !u!114 &114445792545487838
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -169,11 +187,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31e909c6d6aa8e64ebc12136b1ffa564, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  freeMove: 1
+  nextMovement: {fileID: 0}
+  nextMoveDelay: 0
+  nextMoveSpeed: 0
+  scaleX: 0
+  scaleY: 0
   path: []
   speed: 0
   rotationByPath: 0
   loop: 0
+  currentPathPercent: 0
+  pathPositions: []
   movingIsActive: 0
 --- !u!114 &114583603441149630
 MonoBehaviour:
@@ -191,26 +215,13 @@ MonoBehaviour:
   aimTransform: {fileID: 4816220974475946}
   shotSpawn:
   - {fileID: 4816220974475946}
-  fireRate: 1.5
+  fireRate: 2
   delay: 1.5
-  burstFire: 1
-  burstSize: 3
-  burstDelay: 0.2
---- !u!114 &114680142139840246
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1434057391502184}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb3cba2255221e44a8d3c7d98b25bc38, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delay: 0
-  verticalSpeed: 0
-  horizontalSpeed: 0
-  straight: 1
+  burstFire: 0
+  burstSize: 0
+  burstDelay: 0
+  deathSpawn: []
+  deathShot: {fileID: 0}
 --- !u!212 &212495109814423644
 SpriteRenderer:
   m_ObjectHideFlags: 1

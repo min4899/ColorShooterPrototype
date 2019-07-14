@@ -51,31 +51,65 @@ public class Wave : MonoBehaviour {
     public bool testMode;
     #endregion
 
-    //public GameObject nextMovement;
+    [Tooltip("(Wave2 Object)Use one of the prebuilt wave movement for exiting level once current movement is complete.")]
+    public GameObject nextMovement;
 
+    [Tooltip("Time to wait before starting the next movement wave.")]
+    public float nextMoveDelay;
+
+    [Tooltip("Speed of next movement.")]
+    public float nextMoveSpeed;
+
+
+    [Tooltip("negative is to move left, positive is to move right, magnitude is distance")]
+    public float scaleX = 1;
+    [Tooltip("negative is to move down, positive is to move up, magnitude is distance")]
+    public float scaleY = 1;
+
+    //private bool activated = false;
+
+    /*
     private void Start()
     {
         StartCoroutine(CreateEnemyWave()); 
     }
+    */
+
+    public void Activate()
+    {
+        //activated = true;
+        StartCoroutine(CreateEnemyWave());
+    }
 
     IEnumerator CreateEnemyWave() //depending on chosed parameters generating enemies and defining their parameters
     {
-        for (int i = 0; i < count; i++) 
+        if (enemy != null)
         {
-            GameObject newEnemy;
-            newEnemy = Instantiate(enemy, enemy.transform.position, Quaternion.identity);
-            FollowThePath followComponent = newEnemy.GetComponent<FollowThePath>(); 
-            followComponent.path = pathPoints;         
-            followComponent.speed = speed;        
-            followComponent.rotationByPath = rotationByPath;
-            followComponent.loop = Loop;
-            followComponent.SetPath(); 
-            //Enemy enemyComponent = newEnemy.GetComponent<Enemy>();  
-            //enemyComponent.shotChance = shooting.shotChance; 
-            //enemyComponent.shotTimeMin = shooting.shotTimeMin; 
-            //enemyComponent.shotTimeMax = shooting.shotTimeMax;
-            newEnemy.SetActive(true);      
-            yield return new WaitForSeconds(timeBetween); 
+            for (int i = 0; i < count; i++)
+            {
+                GameObject newEnemy;
+                newEnemy = Instantiate(enemy, enemy.transform.position, Quaternion.identity);
+                FollowThePath followComponent = newEnemy.GetComponent<FollowThePath>();
+                followComponent.path = pathPoints;
+                followComponent.speed = speed;
+                followComponent.rotationByPath = rotationByPath;
+                followComponent.loop = Loop;
+                if (nextMovement != null)
+                {
+                    followComponent.nextMovement = nextMovement; // test
+                }
+                followComponent.nextMoveSpeed = nextMoveSpeed;
+                followComponent.nextMoveDelay = nextMoveDelay;
+                followComponent.scaleX = scaleX;
+                followComponent.scaleY = scaleY;
+                followComponent.SetPath();
+                //Enemy enemyComponent = newEnemy.GetComponent<Enemy>();  
+                //enemyComponent.shotChance = shooting.shotChance; 
+                //enemyComponent.shotTimeMin = shooting.shotTimeMin; 
+                //enemyComponent.shotTimeMax = shooting.shotTimeMax;
+                newEnemy.SetActive(true);
+                yield return new WaitForSeconds(timeBetween);
+            }
         }
         if (testMode)       //if testMode is activated, waiting for 3 sec and re-generating the wave
         {

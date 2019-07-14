@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 114829537678153726}
   - component: {fileID: 114663894203479826}
   - component: {fileID: 114689788892767746}
+  - component: {fileID: 114533663023975054}
   m_Layer: 0
   m_Name: PaintBottleRed
   m_TagString: Enemy
@@ -196,6 +197,23 @@ CapsuleCollider2D:
   m_Offset: {x: -0.012107834, y: 0.024044633}
   m_Size: {x: 0.24974993, y: 0.4313271}
   m_Direction: 0
+--- !u!114 &114533663023975054
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1614036884808930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ac12a7b87b55864eb334f7555c3511c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  path: []
+  speed: 0
+  rotationByPath: 0
+  loop: 0
+  movingIsActive: 0
+  delay: 0
 --- !u!114 &114663894203479826
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -214,11 +232,13 @@ MonoBehaviour:
   - {fileID: 4342273302355502}
   - {fileID: 4607864685461978}
   - {fileID: 4954860750247490}
-  fireRate: 2.3
+  fireRate: 2.5
   delay: 1.5
   burstFire: 0
   burstSize: 0
   burstDelay: 0
+  deathSpawn: []
+  deathShot: {fileID: 0}
 --- !u!114 &114689788892767746
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -230,11 +250,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31e909c6d6aa8e64ebc12136b1ffa564, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  freeMove: 0
+  nextMovement: {fileID: 0}
+  nextMoveDelay: 0
+  nextMoveSpeed: 0
+  scaleX: 0
+  scaleY: 0
   path: []
   speed: 0
   rotationByPath: 0
   loop: 0
+  currentPathPercent: 0
+  pathPositions: []
   movingIsActive: 0
 --- !u!114 &114829537678153726
 MonoBehaviour:
@@ -247,11 +273,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27ede04457303ea41844788d1844ee82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 2
+  health: 3
   colorState: 1
   destructionVFX: {fileID: 0}
   hitEffect: {fileID: 0}
   spawnOnDeath: 0
+  fireOnDeath: 0
   DeathOnContact: 0
   whiteMaterial: {fileID: 2100000, guid: 5cf114d876988c94eac83007ca5e10d7, type: 2}
   enemySprite: {fileID: 212931800195690256}

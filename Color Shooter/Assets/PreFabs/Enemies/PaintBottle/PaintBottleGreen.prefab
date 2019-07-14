@@ -82,10 +82,10 @@ GameObject:
   - component: {fileID: 4786079695169994}
   - component: {fileID: 50832485625446612}
   - component: {fileID: 70012050636272602}
-  - component: {fileID: 114949461449917360}
   - component: {fileID: 114527233057551076}
   - component: {fileID: 114164526257411224}
   - component: {fileID: 114407753996443738}
+  - component: {fileID: 114644105652920996}
   m_Layer: 0
   m_Name: PaintBottleGreen
   m_TagString: Enemy
@@ -215,11 +215,13 @@ MonoBehaviour:
   - {fileID: 4341105277339100}
   - {fileID: 4774308055221716}
   - {fileID: 4431536197519920}
-  fireRate: 2.3
+  fireRate: 2.5
   delay: 1.5
   burstFire: 0
   burstSize: 0
   burstDelay: 0
+  deathSpawn: []
+  deathShot: {fileID: 0}
 --- !u!114 &114407753996443738
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -231,11 +233,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31e909c6d6aa8e64ebc12136b1ffa564, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  freeMove: 0
+  nextMovement: {fileID: 0}
+  nextMoveDelay: 0
+  nextMoveSpeed: 0
+  scaleX: 0
+  scaleY: 0
   path: []
   speed: 0
   rotationByPath: 0
   loop: 0
+  currentPathPercent: 0
+  pathPositions: []
   movingIsActive: 0
 --- !u!114 &114527233057551076
 MonoBehaviour:
@@ -248,35 +256,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27ede04457303ea41844788d1844ee82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 2
+  health: 3
   colorState: 3
   destructionVFX: {fileID: 0}
   hitEffect: {fileID: 0}
   spawnOnDeath: 0
+  fireOnDeath: 0
   DeathOnContact: 0
   whiteMaterial: {fileID: 2100000, guid: 5cf114d876988c94eac83007ca5e10d7, type: 2}
   enemySprite: {fileID: 212010167286035302}
---- !u!114 &114949461449917360
+--- !u!114 &114644105652920996
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1809714692107246}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb3cba2255221e44a8d3c7d98b25bc38, type: 3}
+  m_Script: {fileID: 11500000, guid: 5ac12a7b87b55864eb334f7555c3511c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dodge: 0
-  smoothing: 0
-  startWait: {x: 0, y: 0}
-  maneuverTime: {x: 0, y: 0}
-  maneuverWait: {x: 0, y: 0}
-  boundary:
-    xMin: 0
-    xMax: 0
-    yMin: 0
-    yMax: 0
+  path: []
+  speed: 0
+  rotationByPath: 0
+  loop: 0
+  movingIsActive: 0
+  delay: 0
 --- !u!212 &212010167286035302
 SpriteRenderer:
   m_ObjectHideFlags: 1

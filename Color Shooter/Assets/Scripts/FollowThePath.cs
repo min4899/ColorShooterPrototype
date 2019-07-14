@@ -8,21 +8,32 @@ using System;
 /// </summary>
 public class FollowThePath : MonoBehaviour {
 
-    [Tooltip("if object can use its own movement after reaching end of path")]
-    public bool freeMove;
+    //[Tooltip("if object can use its own movement after reaching end of path")]
+    //public bool freeMove;
 
     //test
-    //[HideInInspector] public GameObject nextMovement;
+    [HideInInspector] public GameObject nextMovement; // Wave2 object
+    [HideInInspector] public float nextMoveDelay;
+    [HideInInspector] public float nextMoveSpeed;
+    [HideInInspector] public float scaleX;
+    [HideInInspector] public float scaleY;
 
     [HideInInspector] public Transform [] path; //path points which passes the 'Enemy' 
     [HideInInspector] public float speed; 
     [HideInInspector] public bool rotationByPath;   //whether 'Enemy' rotates in path direction or not
     [HideInInspector] public bool loop;         //if loop is true, 'Enemy' returns to the path starting point after completing the path
-    float currentPathPercent;               //current percentage of completing the path
-    Vector3[] pathPositions;                //path points in vector3
+    [HideInInspector] public float currentPathPercent;               //current percentage of completing the path
+    [HideInInspector] public Vector3[] pathPositions;                //path points in vector3
     [HideInInspector] public bool movingIsActive;   //whether 'Enemy' moves or not
 
-    private Vector3 lastVelocity;
+    //test
+    void Start()
+    {
+        if (GetComponent<FollowThePath2>() != null)
+        {
+            GetComponent<FollowThePath2>().enabled = false;
+        }
+    }
 
     //setting path parameters for the 'Enemy' and sending the 'Enemy' to the path starting point
     public void SetPath() 
@@ -58,11 +69,24 @@ public class FollowThePath : MonoBehaviour {
                 else
                 {
                     //Destroy(gameObject);
-                    if(freeMove)
+                    //if(freeMove && nextMovement != null)
+                    if (nextMovement != null)
                     {
-                        GetComponent<FollowThePath>().enabled = false;
-                        //GameObject nextMovement;
+                        GameObject newMovement = Instantiate(nextMovement, gameObject.transform.position, Quaternion.identity);
+                        newMovement.transform.localScale = new Vector2(scaleX, scaleY);
+                        FollowThePath2 followComponent = GetComponent<FollowThePath2>();
+                        followComponent.enabled = true;
+                        //followComponent.speed = speed;
+                        followComponent.speed = nextMoveSpeed;
+                        followComponent.path = newMovement.GetComponent<Wave2>().pathPoints;
+                        followComponent.rotationByPath = newMovement.GetComponent<Wave2>().rotationByPath;
+                        followComponent.loop = newMovement.GetComponent<Wave2>().Loop;
+                        followComponent.delay = nextMoveDelay;
+                        followComponent.SetPath();
+                        Destroy(newMovement);
+                        //GetComponent<FollowThePath>().enabled = false;
                     }
+                    GetComponent<FollowThePath>().enabled = false;
                 }
             }
         }
@@ -106,4 +130,5 @@ public class FollowThePath : MonoBehaviour {
         }
         return (newPathPos);
     }
+
 }

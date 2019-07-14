@@ -26,7 +26,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4066405328345568
 Transform:
   m_ObjectHideFlags: 1
@@ -52,18 +52,103 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaveCombination: 0
+  prebuilt: 0
   enemyWaves:
   - timeToStart: 0
     wave: {fileID: 1740359786004824, guid: 4d7afe1af5fff2d419bfd84a91b5a383, type: 2}
+    waveParams:
+      enemy: {fileID: 0}
+      count: 0
+      speed: 0
+      timeBetween: 0
+      rotationByPath: 0
+      Loop: 0
+      nextMovement: {fileID: 0}
+      nextMoveDelay: 0
+      nextMoveSpeed: 0
+      scaleX: 1
+      scaleY: 1
   - timeToStart: 6
     wave: {fileID: 1048992955913768, guid: 59bf38656fac21c4d9287e76cda64895, type: 2}
+    waveParams:
+      enemy: {fileID: 0}
+      count: 0
+      speed: 0
+      timeBetween: 0
+      rotationByPath: 0
+      Loop: 0
+      nextMovement: {fileID: 0}
+      nextMoveDelay: 0
+      nextMoveSpeed: 0
+      scaleX: 1
+      scaleY: 1
   - timeToStart: 16
     wave: {fileID: 1473202653420712, guid: 80233df9d703e064991984097745540a, type: 2}
-  - timeToStart: 38
+    waveParams:
+      enemy: {fileID: 0}
+      count: 0
+      speed: 0
+      timeBetween: 0
+      rotationByPath: 0
+      Loop: 0
+      nextMovement: {fileID: 0}
+      nextMoveDelay: 0
+      nextMoveSpeed: 0
+      scaleX: 1
+      scaleY: 1
+  - timeToStart: 28
     wave: {fileID: 1313416854629948, guid: 3a8bae47fd0c70c4f97c7ab78ee51ef1, type: 2}
-  - timeToStart: 51
-    wave: {fileID: 1758961041749226, guid: 562df5fb0b7929544bd349eaf33934f2, type: 2}
-  - timeToStart: 74
+    waveParams:
+      enemy: {fileID: 0}
+      count: 0
+      speed: 0
+      timeBetween: 0
+      rotationByPath: 0
+      Loop: 0
+      nextMovement: {fileID: 0}
+      nextMoveDelay: 0
+      nextMoveSpeed: 0
+      scaleX: 1
+      scaleY: 1
+  - timeToStart: 50
+    wave: {fileID: 1687042025918562, guid: 562df5fb0b7929544bd349eaf33934f2, type: 2}
+    waveParams:
+      enemy: {fileID: 0}
+      count: 0
+      speed: 0
+      timeBetween: 0
+      rotationByPath: 0
+      Loop: 0
+      nextMovement: {fileID: 0}
+      nextMoveDelay: 0
+      nextMoveSpeed: 0
+      scaleX: 1
+      scaleY: 1
+  - timeToStart: 66
     wave: {fileID: 1390720477722166, guid: 13cd6cdd5e4dae74eb04bacb9dd0f779, type: 2}
-  - timeToStart: 94
-    wave: {fileID: 1517470689756574, guid: 1f9111c4ecc68244496255af373ec971, type: 2}
+    waveParams:
+      enemy: {fileID: 0}
+      count: 0
+      speed: 0
+      timeBetween: 0
+      rotationByPath: 0
+      Loop: 0
+      nextMovement: {fileID: 0}
+      nextMoveDelay: 0
+      nextMoveSpeed: 0
+      scaleX: 1
+      scaleY: 1
+  - timeToStart: 85
+    wave: {fileID: 1561014813797480, guid: 1f9111c4ecc68244496255af373ec971, type: 2}
+    waveParams:
+      enemy: {fileID: 0}
+      count: 0
+      speed: 0
+      timeBetween: 0
+      rotationByPath: 0
+      Loop: 0
+      nextMovement: {fileID: 0}
+      nextMoveDelay: 0
+      nextMoveSpeed: 0
+      scaleX: 1
+      scaleY: 1

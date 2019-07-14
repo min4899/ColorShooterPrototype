@@ -25,8 +25,10 @@ public class Enemy : MonoBehaviour {
     //[HideInInspector] public int shotChance; //probability of 'Enemy's' shooting during tha path
     //[HideInInspector] public float shotTimeMin, shotTimeMax; //max and min time for shooting from the beginning of the path
 
-    [Tooltip("Spawn another projectile or enemy on death via SpawnOnDeath Script")]
+    [Tooltip("Spawn another enemy on death via SpawnOnDeath Script")]
     public bool spawnOnDeath = false;
+    [Tooltip("Spawn projectiles on death")]
+    public bool fireOnDeath = false;
     [Tooltip("Enemy dies immediately if it touches the player")]
     public bool DeathOnContact = false;
 
@@ -54,7 +56,10 @@ public class Enemy : MonoBehaviour {
 
     void Start()
     {
-        defaultMaterial = enemySprite.GetComponent<SpriteRenderer>().material;
+        if (enemySprite != null)
+        {
+            defaultMaterial = enemySprite.GetComponent<SpriteRenderer>().material;
+        }
         /*
         GameObject gameControllerObject = GameObject.FindWithTag("GameController");
         if (gameControllerObject != null)
@@ -207,7 +212,11 @@ public class Enemy : MonoBehaviour {
         }
         if (spawnOnDeath)
         {
-            gameObject.GetComponent<SpawnOnDeath>().Spawn();
+            GetComponent<SpawnOnDeath>().Spawn();
+        }
+        if(fireOnDeath)
+        {
+            GetComponent<EnemyShooting>().FireUponDeath();
         }
         Destroy(gameObject);
     }
