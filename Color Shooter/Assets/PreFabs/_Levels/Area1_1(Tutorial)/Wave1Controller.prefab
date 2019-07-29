@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1182338293572504}
+  m_IsPrefabAsset: 1
+--- !u!1 &1182338293572504
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4619568972564740}
+  - component: {fileID: 114375270002582366}
+  m_Layer: 0
+  m_Name: Wave1Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4619568972564740
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1182338293572504}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114375270002582366
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1182338293572504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 752ac5c27e329e34398dbcfe7b16fd0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  master: 0
+  WaveCombination: 1
+  prebuilt: 0
+  enemyWaves:
+  - timeToStart: 0
+    wave: {fileID: 1429713658969452, guid: cf5dc321b26f53e42bcea44d6f04a5d8, type: 2}
+    waveParams:
+      enemy: {fileID: 0}
+      count: 0
+      speed: 0
+      timeBetween: 0
+      rotationByPath: 0
+      Loop: 0
+      nextMovement: {fileID: 0}
+      nextMoveDelay: 0
+      nextMoveSpeed: 0
+      scaleX: 0
+      scaleY: 0
+  - timeToStart: 0
+    wave: {fileID: 1024533914790470, guid: 9b30774fad633fe41965add7d36bb397, type: 2}
+    waveParams:
+      enemy: {fileID: 0}
+      count: 0
+      speed: 0
+      timeBetween: 0
+      rotationByPath: 0
+      Loop: 0
+      nextMovement: {fileID: 0}
+      nextMoveDelay: 0
+      nextMoveSpeed: 0
+      scaleX: 0
+      scaleY: 0
+  - timeToStart: 0
+    wave: {fileID: 1210892010161636, guid: 2259cdd88e401204282f4a4eca682f41, type: 2}
+    waveParams:
+      enemy: {fileID: 0}
+      count: 0
+      speed: 0
+      timeBetween: 0
+      rotationByPath: 0
+      Loop: 0
+      nextMovement: {fileID: 0}
+      nextMoveDelay: 0
+      nextMoveSpeed: 0
+      scaleX: 0
+      scaleY: 0

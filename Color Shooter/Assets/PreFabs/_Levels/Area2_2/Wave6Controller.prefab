@@ -1,0 +1,197 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1366284747191596}
+  m_IsPrefabAsset: 1
+--- !u!1 &1366284747191596
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4973058174868010}
+  - component: {fileID: 114360111161054274}
+  m_Layer: 0
+  m_Name: Wave6Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4973058174868010
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1366284747191596}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114360111161054274
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1366284747191596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 752ac5c27e329e34398dbcfe7b16fd0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  master: 0
+  WaveCombination: 1
+  prebuilt: 0
+  enemyWaves:
+  - timeToStart: 0
+    wave: {fileID: 1499604189334106, guid: 89bf0b68c1bf0dd4282cbda5d630fe04, type: 2}
+    waveParams:
+      enemy: {fileID: 0}
+      count: 0
+      speed: 0
+      timeBetween: 0
+      rotationByPath: 0
+      Loop: 0
+      nextMovement: {fileID: 0}
+      nextMoveDelay: 0
+      nextMoveSpeed: 0
+      scaleX: 0
+      scaleY: 0
+  - timeToStart: 3.5
+    wave: {fileID: 1980369322338080, guid: ec70317db2b6be34781fe704f53bf0a4, type: 2}
+    waveParams:
+      enemy: {fileID: 0}
+      count: 0
+      speed: 0
+      timeBetween: 0
+      rotationByPath: 0
+      Loop: 0
+      nextMovement: {fileID: 0}
+      nextMoveDelay: 0
+      nextMoveSpeed: 0
+      scaleX: 0
+      scaleY: 0
+  - timeToStart: 7
+    wave: {fileID: 1460001073773824, guid: 59d09f6545254a74b98cf669e1297d92, type: 2}
+    waveParams:
+      enemy: {fileID: 0}
+      count: 0
+      speed: 0
+      timeBetween: 0
+      rotationByPath: 0
+      Loop: 0
+      nextMovement: {fileID: 0}
+      nextMoveDelay: 0
+      nextMoveSpeed: 0
+      scaleX: 0
+      scaleY: 0
+  - timeToStart: 10.5
+    wave: {fileID: 1990601869496588, guid: 6c5680df3cda9d243a6341caa82b8e70, type: 2}
+    waveParams:
+      enemy: {fileID: 0}
+      count: 0
+      speed: 0
+      timeBetween: 0
+      rotationByPath: 0
+      Loop: 0
+      nextMovement: {fileID: 0}
+      nextMoveDelay: 0
+      nextMoveSpeed: 0
+      scaleX: 0
+      scaleY: 0
+  - timeToStart: 14
+    wave: {fileID: 1028284478935038, guid: c8f2afadbc512954e8d25dcc5fa33743, type: 2}
+    waveParams:
+      enemy: {fileID: 0}
+      count: 0
+      speed: 0
+      timeBetween: 0
+      rotationByPath: 0
+      Loop: 0
+      nextMovement: {fileID: 0}
+      nextMoveDelay: 0
+      nextMoveSpeed: 0
+      scaleX: 0
+      scaleY: 0
+  - timeToStart: 0
+    wave: {fileID: 1032557645118962, guid: b5e061223af50574c9288b861445059d, type: 2}
+    waveParams:
+      enemy: {fileID: 0}
+      count: 0
+      speed: 0
+      timeBetween: 0
+      rotationByPath: 0
+      Loop: 0
+      nextMovement: {fileID: 0}
+      nextMoveDelay: 0
+      nextMoveSpeed: 0
+      scaleX: 0
+      scaleY: 0
+  - timeToStart: 3.5
+    wave: {fileID: 1591751729819870, guid: 01d35b9ad795fbf4eb2cb6b77cb291bd, type: 2}
+    waveParams:
+      enemy: {fileID: 0}
+      count: 0
+      speed: 0
+      timeBetween: 0
+      rotationByPath: 0
+      Loop: 0
+      nextMovement: {fileID: 0}
+      nextMoveDelay: 0
+      nextMoveSpeed: 0
+      scaleX: 0
+      scaleY: 0
+  - timeToStart: 7
+    wave: {fileID: 1745172817753472, guid: c5ced213083abdc48bca558d7d58d02c, type: 2}
+    waveParams:
+      enemy: {fileID: 0}
+      count: 0
+      speed: 0
+      timeBetween: 0
+      rotationByPath: 0
+      Loop: 0
+      nextMovement: {fileID: 0}
+      nextMoveDelay: 0
+      nextMoveSpeed: 0
+      scaleX: 0
+      scaleY: 0
+  - timeToStart: 10.5
+    wave: {fileID: 1997709516239004, guid: bfccdb7e5ebabc440bffd5251fa33e31, type: 2}
+    waveParams:
+      enemy: {fileID: 0}
+      count: 0
+      speed: 0
+      timeBetween: 0
+      rotationByPath: 0
+      Loop: 0
+      nextMovement: {fileID: 0}
+      nextMoveDelay: 0
+      nextMoveSpeed: 0
+      scaleX: 0
+      scaleY: 0
+  - timeToStart: 14
+    wave: {fileID: 1676781934968372, guid: d3b990b4286d2e840b10f05bb425eda2, type: 2}
+    waveParams:
+      enemy: {fileID: 0}
+      count: 0
+      speed: 0
+      timeBetween: 0
+      rotationByPath: 0
+      Loop: 0
+      nextMovement: {fileID: 0}
+      nextMoveDelay: 0
+      nextMoveSpeed: 0
+      scaleX: 0
+      scaleY: 0

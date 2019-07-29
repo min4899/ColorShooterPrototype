@@ -9,17 +9,18 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1587672233475130}
+  m_RootGameObject: {fileID: 1186014272719290}
   m_IsPrefabAsset: 1
---- !u!1 &1587672233475130
+--- !u!1 &1186014272719290
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4668903994034128}
-  - component: {fileID: 114542245637447294}
+  - component: {fileID: 4066405328345568}
+  - component: {fileID: 114563647098697470}
+  - component: {fileID: 114154628683327456}
   m_Layer: 0
   m_Name: Area1_3LevelController
   m_TagString: Untagged
@@ -27,12 +28,12 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!4 &4668903994034128
+--- !u!4 &4066405328345568
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1587672233475130}
+  m_GameObject: {fileID: 1186014272719290}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -40,22 +41,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114542245637447294
+--- !u!114 &114154628683327456
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1587672233475130}
+  m_GameObject: {fileID: 1186014272719290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2078ac5526bb8a44faabc4d741faa13f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  countDown: 2
+--- !u!114 &114563647098697470
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1186014272719290}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 752ac5c27e329e34398dbcfe7b16fd0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  master: 1
   WaveCombination: 0
   prebuilt: 0
   enemyWaves:
   - timeToStart: 0
-    wave: {fileID: 1760592115923778, guid: 9982e8c22d8a3cb49ba37eb7fc7a7ddc, type: 2}
+    wave: {fileID: 1740359786004824, guid: 4d7afe1af5fff2d419bfd84a91b5a383, type: 2}
     waveParams:
       enemy: {fileID: 0}
       count: 0
@@ -66,10 +80,10 @@ MonoBehaviour:
       nextMovement: {fileID: 0}
       nextMoveDelay: 0
       nextMoveSpeed: 0
-      scaleX: 0
-      scaleY: 0
-  - timeToStart: 14
-    wave: {fileID: 1525363086471628, guid: 991abd66346236247958109ca46468f8, type: 2}
+      scaleX: 1
+      scaleY: 1
+  - timeToStart: 6
+    wave: {fileID: 1048992955913768, guid: 59bf38656fac21c4d9287e76cda64895, type: 2}
     waveParams:
       enemy: {fileID: 0}
       count: 0
@@ -80,10 +94,10 @@ MonoBehaviour:
       nextMovement: {fileID: 0}
       nextMoveDelay: 0
       nextMoveSpeed: 0
-      scaleX: 0
-      scaleY: 0
-  - timeToStart: 24
-    wave: {fileID: 1788715193720132, guid: 466cf725e9d4e7a448f7fc5ba4f6bf64, type: 2}
+      scaleX: 1
+      scaleY: 1
+  - timeToStart: 16
+    wave: {fileID: 1473202653420712, guid: 80233df9d703e064991984097745540a, type: 2}
     waveParams:
       enemy: {fileID: 0}
       count: 0
@@ -94,10 +108,10 @@ MonoBehaviour:
       nextMovement: {fileID: 0}
       nextMoveDelay: 0
       nextMoveSpeed: 0
-      scaleX: 0
-      scaleY: 0
-  - timeToStart: 42
-    wave: {fileID: 1809972223683466, guid: 0beb373dd0c0f954ba2d1d661a18ef3f, type: 2}
+      scaleX: 1
+      scaleY: 1
+  - timeToStart: 28
+    wave: {fileID: 1313416854629948, guid: 3a8bae47fd0c70c4f97c7ab78ee51ef1, type: 2}
     waveParams:
       enemy: {fileID: 0}
       count: 0
@@ -108,10 +122,10 @@ MonoBehaviour:
       nextMovement: {fileID: 0}
       nextMoveDelay: 0
       nextMoveSpeed: 0
-      scaleX: 0
-      scaleY: 0
-  - timeToStart: 60
-    wave: {fileID: 1076967091825112, guid: 647e43451e3b42140b8cf235fca51bc8, type: 2}
+      scaleX: 1
+      scaleY: 1
+  - timeToStart: 50
+    wave: {fileID: 1687042025918562, guid: 562df5fb0b7929544bd349eaf33934f2, type: 2}
     waveParams:
       enemy: {fileID: 0}
       count: 0
@@ -122,10 +136,10 @@ MonoBehaviour:
       nextMovement: {fileID: 0}
       nextMoveDelay: 0
       nextMoveSpeed: 0
-      scaleX: 0
-      scaleY: 0
-  - timeToStart: 69
-    wave: {fileID: 1194017363772342, guid: cd45bc9151df2f04fb0c35a77c6c978c, type: 2}
+      scaleX: 1
+      scaleY: 1
+  - timeToStart: 65
+    wave: {fileID: 1390720477722166, guid: 13cd6cdd5e4dae74eb04bacb9dd0f779, type: 2}
     waveParams:
       enemy: {fileID: 0}
       count: 0
@@ -136,10 +150,10 @@ MonoBehaviour:
       nextMovement: {fileID: 0}
       nextMoveDelay: 0
       nextMoveSpeed: 0
-      scaleX: 0
-      scaleY: 0
+      scaleX: 1
+      scaleY: 1
   - timeToStart: 80
-    wave: {fileID: 1439465931827536, guid: 08d6a38ce58a2ec49881c4b6241d021d, type: 2}
+    wave: {fileID: 1624572817090584, guid: 7fe0fbc09cf96fe4e875eddd7f63e853, type: 2}
     waveParams:
       enemy: {fileID: 0}
       count: 0
@@ -150,5 +164,19 @@ MonoBehaviour:
       nextMovement: {fileID: 0}
       nextMoveDelay: 0
       nextMoveSpeed: 0
-      scaleX: 0
-      scaleY: 0
+      scaleX: 1
+      scaleY: 1
+  - timeToStart: 96
+    wave: {fileID: 1561014813797480, guid: 1f9111c4ecc68244496255af373ec971, type: 2}
+    waveParams:
+      enemy: {fileID: 0}
+      count: 0
+      speed: 0
+      timeBetween: 0
+      rotationByPath: 0
+      Loop: 0
+      nextMovement: {fileID: 0}
+      nextMoveDelay: 0
+      nextMoveSpeed: 0
+      scaleX: 1
+      scaleY: 1

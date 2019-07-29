@@ -56,6 +56,7 @@ GameObject:
   - component: {fileID: 114619969475122712}
   - component: {fileID: 114207633188764514}
   - component: {fileID: 114462083628070274}
+  - component: {fileID: 95211929975430234}
   m_Layer: 0
   m_Name: PaintTubeYellow
   m_TagString: Enemy
@@ -139,6 +140,24 @@ CapsuleCollider2D:
   m_Offset: {x: -0.014507171, y: 0.02939862}
   m_Size: {x: 0.25842828, y: 0.39526498}
   m_Direction: 0
+--- !u!95 &95211929975430234
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1955732010549196}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ec270d7ecc5e21049ad00a4fefdfc250, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114207633188764514
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -191,11 +210,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shot: {fileID: 1127336098557808, guid: 25176a2a80aad89448dfbbc073d4eea9, type: 2}
+  multipleShots: 0
+  multipleShotsBetween: 1
   aim: 1
   aimTransform: {fileID: 4269884965498702}
   shotSpawn:
   - {fileID: 4269884965498702}
-  fireRate: 2
+  fireRate: 2.2
   delay: 1.5
   burstFire: 0
   burstSize: 0
@@ -214,9 +235,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 2
+  points: 20
   colorState: 2
-  destructionVFX: {fileID: 0}
+  destructionVFX: {fileID: 1593964054482234, guid: 673f3379dc15ae84092af1cd1bed3d0c,
+    type: 2}
   hitEffect: {fileID: 0}
+  fireSound: Enemy_Fire
+  pointText: {fileID: 1501434277413564, guid: 42bde58417f6812488fa8e66cf7b2a0e, type: 2}
   spawnOnDeath: 0
   fireOnDeath: 0
   DeathOnContact: 0
@@ -257,7 +282,7 @@ SpriteRenderer:
   m_SortingLayerID: 737667159
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0d828727aa3eb384592c46e3443290ff, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f4e68d41530bf114f89886c9dcbcf81d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

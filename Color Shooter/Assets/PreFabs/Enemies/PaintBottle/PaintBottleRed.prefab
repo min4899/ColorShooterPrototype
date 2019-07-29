@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 114663894203479826}
   - component: {fileID: 114689788892767746}
   - component: {fileID: 114533663023975054}
+  - component: {fileID: 95436439709726290}
   m_Layer: 0
   m_Name: PaintBottleRed
   m_TagString: Enemy
@@ -129,13 +130,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1103114974301846}
-  m_LocalRotation: {x: 0, y: 0, z: 0.9848078, w: 0.17364825}
+  m_LocalRotation: {x: 0, y: 0, z: 0.99026805, w: 0.13917318}
   m_LocalPosition: {x: -0.009000003, y: -0.18600011, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4322315483756264}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 160}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 164}
 --- !u!4 &4741448619701240
 Transform:
   m_ObjectHideFlags: 1
@@ -144,7 +145,7 @@ Transform:
   m_GameObject: {fileID: 1860378014973296}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4322315483756264}
   m_RootOrder: 0
@@ -155,13 +156,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1637009303153868}
-  m_LocalRotation: {x: 0, y: -0, z: 0.9848078, w: -0.17364809}
+  m_LocalRotation: {x: 0, y: -0, z: 0.9902681, w: -0.13917309}
   m_LocalPosition: {x: -0.009000003, y: -0.18600011, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4322315483756264}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 200}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 196}
 --- !u!50 &50122653398603068
 Rigidbody2D:
   serializedVersion: 4
@@ -197,6 +198,24 @@ CapsuleCollider2D:
   m_Offset: {x: -0.012107834, y: 0.024044633}
   m_Size: {x: 0.24974993, y: 0.4313271}
   m_Direction: 0
+--- !u!95 &95436439709726290
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1614036884808930}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 37849a91650f75b4aad61436704c2ba7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114533663023975054
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -226,13 +245,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shot: {fileID: 1755210951160630, guid: 72926235bb51061498a003d1dda604ae, type: 2}
+  multipleShots: 0
+  multipleShotsBetween: 1
   aim: 0
   aimTransform: {fileID: 4342273302355502}
   shotSpawn:
   - {fileID: 4342273302355502}
   - {fileID: 4607864685461978}
   - {fileID: 4954860750247490}
-  fireRate: 2.5
+  fireRate: 2.75
   delay: 1.5
   burstFire: 0
   burstSize: 0
@@ -274,9 +295,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
+  points: 20
   colorState: 1
-  destructionVFX: {fileID: 0}
+  destructionVFX: {fileID: 1571410037624214, guid: fc3ee876fd89a144faa707050b35585e,
+    type: 2}
   hitEffect: {fileID: 0}
+  fireSound: Enemy_Fire
+  pointText: {fileID: 1501434277413564, guid: 42bde58417f6812488fa8e66cf7b2a0e, type: 2}
   spawnOnDeath: 0
   fireOnDeath: 0
   DeathOnContact: 0
@@ -317,7 +342,7 @@ SpriteRenderer:
   m_SortingLayerID: 737667159
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7d63ee8e9b7e6a94dbb7ed16271cb19d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e74b508c6632b824b8b4784647f69ef1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

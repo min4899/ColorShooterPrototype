@@ -13,6 +13,8 @@ TagManager:
   - PlayerGreenShot
   - EnemyGreenShot
   - Boss
+  - BossWave
+  - HealthBar
   layers:
   - Default
   - TransparentFX
@@ -55,6 +57,9 @@ TagManager:
     locked: 0
   - name: Enemy
     uniqueID: 737667159
+    locked: 0
+  - name: Effects
+    uniqueID: 3069524769
     locked: 0
   - name: Player
     uniqueID: 109676625

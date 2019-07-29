@@ -55,7 +55,7 @@ MonoBehaviour:
   prebuilt: 1
   enemyWaves:
   - timeToStart: 0
-    wave: {fileID: 1876618207797260, guid: c93d6ef4aed6e194aaa8ab32ab3f70c1, type: 2}
+    wave: {fileID: 1883493410246572, guid: d6c187f940f6d324e8eb3785a11bacfc, type: 2}
     waveParams:
       enemy: {fileID: 0}
       count: 0
@@ -69,7 +69,7 @@ MonoBehaviour:
       scaleX: 1
       scaleY: 1
   - timeToStart: 0
-    wave: {fileID: 1063438047114018, guid: b0cbae3924c00ad469ba4a030cb2b112, type: 2}
+    wave: {fileID: 1032175824730176, guid: 28d6511a3b052bf4b836e0ac22d9d23d, type: 2}
     waveParams:
       enemy: {fileID: 0}
       count: 0
@@ -83,7 +83,7 @@ MonoBehaviour:
       scaleX: 1
       scaleY: 1
   - timeToStart: 0
-    wave: {fileID: 1138988349801616, guid: bfc8154f166ba9b49a4fa5440dad7547, type: 2}
+    wave: {fileID: 1225511171089436, guid: a9999e4b3f935f543a67677aec093954, type: 2}
     waveParams:
       enemy: {fileID: 0}
       count: 0
@@ -97,7 +97,7 @@ MonoBehaviour:
       scaleX: 1
       scaleY: 1
   - timeToStart: 0
-    wave: {fileID: 1508520400845362, guid: 03f9d85fc9c377f42a9d2c45452b6a04, type: 2}
+    wave: {fileID: 1827853848131762, guid: 61b9ed43c9bac5f46b0e0eb08aa5404f, type: 2}
     waveParams:
       enemy: {fileID: 0}
       count: 0
@@ -111,7 +111,7 @@ MonoBehaviour:
       scaleX: 1
       scaleY: 1
   - timeToStart: 0
-    wave: {fileID: 1482328002045096, guid: ca72a4081b5467344a6b65b7b84eba8b, type: 2}
+    wave: {fileID: 1118600534535720, guid: 3650c1e77a7743f4e8b9006c0f657454, type: 2}
     waveParams:
       enemy: {fileID: 0}
       count: 0

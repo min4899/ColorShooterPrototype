@@ -109,9 +109,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c7b5a08007ba8e469e1f425309a2b3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 1432462304673700, guid: c07a0fa2c953bf249826c4f3cbcdc379, type: 2}
+  enemy: {fileID: 1795827503225338, guid: 9ac3b8ee233ab38408d8f2a8ee0d03a0, type: 2}
   count: 3
-  speed: 32
+  speed: 30
   timeBetween: 2.9
   pathPoints:
   - {fileID: 4544182069024400}
@@ -120,3 +120,8 @@ MonoBehaviour:
   Loop: 0
   pathColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   testMode: 0
+  nextMovement: {fileID: 0}
+  nextMoveDelay: 0
+  nextMoveSpeed: 0
+  scaleX: 1
+  scaleY: 1

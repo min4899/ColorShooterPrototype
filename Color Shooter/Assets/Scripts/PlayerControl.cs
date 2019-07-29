@@ -8,7 +8,8 @@ public class Boundary
     public float xMin, xMax, yMin, yMax;
 }
 
-public class PlayerControl : MonoBehaviour {
+public class PlayerControl : MonoBehaviour
+{
 
     public float speed;
     public Boundary boundary;
@@ -17,30 +18,47 @@ public class PlayerControl : MonoBehaviour {
     private float deltaX;
     private float deltaY;
     private int moveTouchID;
+    private bool slow; // test
 
     void Start()
     {
         Input.simulateMouseWithTouches = false;
+        slow = false;
     }
 
     void Update()
     {
-        /*
+#if UNITY_STANDALONE || UNITY_EDITOR    //if the current platform is not mobile
         // For PC keyboard controls
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
         Vector2 movement = new Vector2(moveHorizontal, moveVertical);
-        GetComponent<Rigidbody2D>().velocity = movement * speed;
+        if(Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            slow = true;
+        }
+        if(Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            slow = false;
+        }
+        if(slow)
+        {
+            GetComponent<Rigidbody2D>().velocity = movement * speed/2;
+        }
+        else
+        {
+            GetComponent<Rigidbody2D>().velocity = movement * speed;
+        }
+        //GetComponent<Rigidbody2D>().velocity = movement * speed;
 
         GetComponent<Rigidbody2D>().position = new Vector2
         (
             Mathf.Clamp(GetComponent<Rigidbody2D>().position.x, boundary.xMin, boundary.xMax),
             Mathf.Clamp(GetComponent<Rigidbody2D>().position.y, boundary.yMin, boundary.yMax)
         );
-        */
 
-#if UNITY_STANDALONE || UNITY_EDITOR    //if the current platform is not mobile, setting mouse handling 
+        
         // For Pc mouse controls
         if (Input.GetMouseButton(0)) //if mouse button was pressed       
         {
@@ -93,7 +111,7 @@ public class PlayerControl : MonoBehaviour {
                 }
             }
             //Debug.Log(transform.position);
-#endif
         }
+#endif
     }
 }

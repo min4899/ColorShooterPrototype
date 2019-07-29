@@ -9,17 +9,17 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1630730951238888}
+  m_RootGameObject: {fileID: 1530798488639756}
   m_IsPrefabAsset: 1
---- !u!1 &1630730951238888
+--- !u!1 &1530798488639756
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4277372422925022}
-  - component: {fileID: 114470405125474440}
+  - component: {fileID: 4174876825948108}
+  - component: {fileID: 114436158198675660}
   m_Layer: 0
   m_Name: Wave4Controller
   m_TagString: Untagged
@@ -27,12 +27,12 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4277372422925022
+--- !u!4 &4174876825948108
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1630730951238888}
+  m_GameObject: {fileID: 1530798488639756}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -40,12 +40,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114470405125474440
+--- !u!114 &114436158198675660
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1630730951238888}
+  m_GameObject: {fileID: 1530798488639756}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 752ac5c27e329e34398dbcfe7b16fd0f, type: 3}
@@ -54,73 +54,18 @@ MonoBehaviour:
   WaveCombination: 1
   prebuilt: 0
   enemyWaves:
+  - timeToStart: 2
+    wave: {fileID: 1287223785357000, guid: 19efe6f86498c1f419dadfefe2927d0f, type: 2}
+    enemy: {fileID: 0}
+  - timeToStart: 1
+    wave: {fileID: 1546183915573648, guid: 5e6520a624522a748bda614f9fd9ac03, type: 2}
+    enemy: {fileID: 0}
   - timeToStart: 0
-    wave: {fileID: 1940475637455590, guid: da65eb54d22472c43a27ffd440695fb4, type: 2}
-    waveParams:
-      enemy: {fileID: 0}
-      count: 0
-      speed: 0
-      timeBetween: 0
-      rotationByPath: 0
-      Loop: 0
-      nextMovement: {fileID: 0}
-      nextMoveDelay: 0
-      nextMoveSpeed: 0
-      scaleX: 0
-      scaleY: 0
-  - timeToStart: 3
-    wave: {fileID: 1933093468826978, guid: 9b211275a7410bb4c9bbb16d39af53c3, type: 2}
-    waveParams:
-      enemy: {fileID: 0}
-      count: 0
-      speed: 0
-      timeBetween: 0
-      rotationByPath: 0
-      Loop: 0
-      nextMovement: {fileID: 0}
-      nextMoveDelay: 0
-      nextMoveSpeed: 0
-      scaleX: 0
-      scaleY: 0
-  - timeToStart: 6
-    wave: {fileID: 1766060702954172, guid: 93f627d3de1e6b64bae0ce18bcf56b5d, type: 2}
-    waveParams:
-      enemy: {fileID: 0}
-      count: 0
-      speed: 0
-      timeBetween: 0
-      rotationByPath: 0
-      Loop: 0
-      nextMovement: {fileID: 0}
-      nextMoveDelay: 0
-      nextMoveSpeed: 0
-      scaleX: 0
-      scaleY: 0
-  - timeToStart: 9
-    wave: {fileID: 1831563021348508, guid: 35bb5cfb1574ae2448245b3c257ff1e6, type: 2}
-    waveParams:
-      enemy: {fileID: 0}
-      count: 0
-      speed: 0
-      timeBetween: 0
-      rotationByPath: 0
-      Loop: 0
-      nextMovement: {fileID: 0}
-      nextMoveDelay: 0
-      nextMoveSpeed: 0
-      scaleX: 0
-      scaleY: 0
-  - timeToStart: 12
-    wave: {fileID: 1841183604485784, guid: d955fbd090e2a2e4fb7169dee654e81a, type: 2}
-    waveParams:
-      enemy: {fileID: 0}
-      count: 0
-      speed: 0
-      timeBetween: 0
-      rotationByPath: 0
-      Loop: 0
-      nextMovement: {fileID: 0}
-      nextMoveDelay: 0
-      nextMoveSpeed: 0
-      scaleX: 0
-      scaleY: 0
+    wave: {fileID: 1047906570028786, guid: 69074d64a2b3d564a8375a784eaeac2b, type: 2}
+    enemy: {fileID: 0}
+  - timeToStart: 1.5
+    wave: {fileID: 1987599759874722, guid: aee2ae5cc56410f41b4dd01beaed8e89, type: 2}
+    enemy: {fileID: 0}
+  - timeToStart: 0.5
+    wave: {fileID: 1039003585983552, guid: 4498f6bf4d5756c4fab7824c4db4e07f, type: 2}
+    enemy: {fileID: 0}

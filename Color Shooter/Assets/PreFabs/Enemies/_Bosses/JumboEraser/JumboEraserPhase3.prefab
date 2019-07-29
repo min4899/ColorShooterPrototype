@@ -115,9 +115,10 @@ GameObject:
   - component: {fileID: 114262261775679992}
   - component: {fileID: 114393049967841460}
   - component: {fileID: 114217886183386814}
+  - component: {fileID: 95368188467207394}
   m_Layer: 0
   m_Name: JumboEraserPhase3
-  m_TagString: Enemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -266,7 +267,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1767077359158938}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.609, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4328287901449670}
@@ -356,6 +357,24 @@ PolygonCollider2D:
       - {x: -0.26737106, y: -0.43407702}
       - {x: 0.30187708, y: -0.44315577}
       - {x: 0.48677438, y: 0.34959102}
+--- !u!95 &95368188467207394
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1767077359158938}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c288f33e11ffe024e95f4d6a608b5a95, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114217886183386814
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -385,9 +404,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 35
+  points: 300
   colorState: 1
-  destructionVFX: {fileID: 0}
+  destructionVFX: {fileID: 1463374791050038, guid: 76bbf2d9f8449cb4e971faaed8458744,
+    type: 2}
   hitEffect: {fileID: 0}
+  fireSound: Enemy_Fire
+  pointText: {fileID: 1501434277413564, guid: 42bde58417f6812488fa8e66cf7b2a0e, type: 2}
   spawnOnDeath: 0
   fireOnDeath: 0
   DeathOnContact: 0
@@ -428,6 +451,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shot: {fileID: 1786886314996266, guid: d04b7269993e43540856ddfd1be342ee, type: 2}
+  multipleShots: 0
+  multipleShotsBetween: 1
   aim: 0
   aimTransform: {fileID: 0}
   shotSpawn:

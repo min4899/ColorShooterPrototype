@@ -58,6 +58,9 @@ public class WaveParameter
 
 public class LevelController : MonoBehaviour {
 
+    [Tooltip("This levelcontroller is the overall controller of the entire level. If a final boss is used, no need to use this ")]
+    public bool master = false;
+
     [Tooltip("Use as a grouper for multiple wave types, instead of overall level controller")]
     public bool WaveCombination;
 
@@ -89,7 +92,11 @@ public class LevelController : MonoBehaviour {
         float totalTime = 0;
         for(int i = 0; i <enemyWaves.Length; i++)
         {
-            totalTime += enemyWaves[i].timeToStart;
+            //totalTime += enemyWaves[i].timeToStart;
+            if(totalTime < enemyWaves[i].timeToStart)
+            {
+                totalTime = enemyWaves[i].timeToStart;
+            }
         }
         for (int i = 0; i < enemyWaves.Length; i++)
         {
@@ -100,6 +107,11 @@ public class LevelController : MonoBehaviour {
         {
             Destroy(gameObject, totalTime + 3.0f); // Destroy this object 3 seconds after the last wave started.
             //Destroy(gameObject); // Destroy object after all its waves are complete.
+        }
+        if(master) // A script enabled at the last wave to check if enemies are cleared.
+        {
+            gameObject.GetComponent<CheckForEnemies>().enabled = false;
+            StartCoroutine(CountDown(totalTime + 3.0f));
         }
         //StartCoroutine(PowerupBonusCreation());
         //StartCoroutine(PlanetsCreation());
@@ -115,7 +127,7 @@ public class LevelController : MonoBehaviour {
         {
             GameObject wave = Instantiate(Wave);
             //test
-            if (prebuilt) // if enemy is set, then the wave will run. If not, the wave will not run.
+            if (prebuilt) // if levelcontroller was prebuilt and from prefabs, it will create a copy of it and use its own waveParam values.
             {
                 Wave waveScript = wave.GetComponent<Wave>();
                 waveScript.enemy = waveParams.enemy;
@@ -135,6 +147,12 @@ public class LevelController : MonoBehaviour {
                 wave.GetComponent<Wave>().Activate();
         }
             
+    }
+
+    IEnumerator CountDown(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        gameObject.GetComponent<CheckForEnemies>().enabled = true;
     }
 
     /*

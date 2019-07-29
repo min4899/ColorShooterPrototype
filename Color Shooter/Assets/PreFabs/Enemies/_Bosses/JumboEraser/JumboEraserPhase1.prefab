@@ -162,9 +162,10 @@ GameObject:
   - component: {fileID: 114112695761769712}
   - component: {fileID: 114721896283316528}
   - component: {fileID: 114385016896560242}
+  - component: {fileID: 95842191427373426}
   m_Layer: 0
   m_Name: JumboEraserPhase1
-  m_TagString: Enemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -293,7 +294,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1969922015083300}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 3.512, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4604087521563110}
@@ -357,6 +358,24 @@ PolygonCollider2D:
       - {x: -0.46113303, y: -0.8760984}
       - {x: 0.4561112, y: -0.8884418}
       - {x: 0.83596134, y: 0.7162366}
+--- !u!95 &95842191427373426
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1969922015083300}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 38e4867e8ea200141b5a2e90a11e84ba, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114112695761769712
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -407,6 +426,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shot: {fileID: 1954590182354082, guid: b18ecf961e8b22149910409aae7d2f31, type: 2}
+  multipleShots: 0
+  multipleShotsBetween: 1
   aim: 0
   aimTransform: {fileID: 0}
   shotSpawn:
@@ -454,9 +475,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 55
+  points: 500
   colorState: 3
-  destructionVFX: {fileID: 0}
+  destructionVFX: {fileID: 1463374791050038, guid: 76bbf2d9f8449cb4e971faaed8458744,
+    type: 2}
   hitEffect: {fileID: 0}
+  fireSound: Enemy_Fire
+  pointText: {fileID: 1501434277413564, guid: 42bde58417f6812488fa8e66cf7b2a0e, type: 2}
   spawnOnDeath: 1
   fireOnDeath: 0
   DeathOnContact: 0
@@ -497,7 +522,7 @@ SpriteRenderer:
   m_SortingLayerID: 737667159
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ee83a63217e89194a93bf42e5ddc7ba6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c0b248f757cec9945b7595be099fbcc5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

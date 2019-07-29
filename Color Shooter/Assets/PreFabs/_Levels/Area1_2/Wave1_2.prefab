@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 1614036884808930, guid: 9b6c4fb1dd67869428f8efa0624f4c17, type: 2}
-  count: 2
+  count: 1
   speed: 10
   timeBetween: 10
   pathPoints:
@@ -120,3 +120,8 @@ MonoBehaviour:
   Loop: 0
   pathColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   testMode: 0
+  nextMovement: {fileID: 0}
+  nextMoveDelay: 0
+  nextMoveSpeed: 0
+  scaleX: 1
+  scaleY: 1

@@ -190,7 +190,7 @@ GameObject:
   - component: {fileID: 114538072498534324}
   - component: {fileID: 114076704135701800}
   - component: {fileID: 114245553608914628}
-  - component: {fileID: 114227265597229792}
+  - component: {fileID: 95705521066241854}
   m_Layer: 0
   m_Name: JumboEraserRed2
   m_TagString: Enemy
@@ -647,6 +647,24 @@ PolygonCollider2D:
       - {x: -0.24443138, y: -0.4318924}
       - {x: 0.2770263, y: -0.44423532}
       - {x: 0.50478524, y: 0.33844566}
+--- !u!95 &95705521066241854
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1640579967371022}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c288f33e11ffe024e95f4d6a608b5a95, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114050203537410466
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -659,14 +677,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shot: {fileID: 1329229725663738, guid: e55eb078e88e0c44891463dd12fe12e6, type: 2}
+  multipleShots: 0
+  multipleShotsBetween: 0
   aim: 0
   aimTransform: {fileID: 0}
   shotSpawn:
   - {fileID: 4054209980710664}
   - {fileID: 4178509969610166}
-  fireRate: 0
+  fireRate: 0.8
   delay: 1.5
-  sequenceDelay: 0.6
+  sequenceDelay: 0.8
   burstFire: 0
   burstSize: 0
   burstDelay: 0
@@ -695,20 +715,6 @@ MonoBehaviour:
   currentPathPercent: 0
   pathPositions: []
   movingIsActive: 0
---- !u!114 &114227265597229792
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1640579967371022}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94c91f4eaf0e60e4fbbc22b312c4d8e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnOnParent: 0
-  followParentPath: 0
-  spawnItems: []
 --- !u!114 &114245553608914628
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -737,10 +743,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27ede04457303ea41844788d1844ee82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 20
+  health: 17
+  points: 200
   colorState: 1
-  destructionVFX: {fileID: 0}
+  destructionVFX: {fileID: 1463374791050038, guid: 76bbf2d9f8449cb4e971faaed8458744,
+    type: 2}
   hitEffect: {fileID: 0}
+  fireSound: Enemy_Fire
+  pointText: {fileID: 1501434277413564, guid: 42bde58417f6812488fa8e66cf7b2a0e, type: 2}
   spawnOnDeath: 0
   fireOnDeath: 0
   DeathOnContact: 0

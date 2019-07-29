@@ -68,12 +68,17 @@ public class Wave : MonoBehaviour {
 
     //private bool activated = false;
 
-    /*
+    
     private void Start()
     {
-        StartCoroutine(CreateEnemyWave()); 
+        // Play the boss music if the wave is tagged as 'bosswave'
+        if (gameObject.CompareTag("BossWave"))
+        {
+            MusicManager.instance.PlayBossMusic();
+        }
+        //StartCoroutine(CreateEnemyWave()); 
     }
-    */
+    
 
     public void Activate()
     {

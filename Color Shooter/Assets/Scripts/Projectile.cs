@@ -31,13 +31,13 @@ public class Projectile : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision) //when a projectile collides with another object
     {
-        if (enemyBullet && collision.tag == "Player") // shots will only be destoryed if it hits player or enemy
+        if (enemyBullet && collision.CompareTag("Player")) // shots will only be destoryed if it hits player or enemy
         {
             //Player.instance.GetDamage(damage); 
             if (destroyedByCollision)
                 Destruction();
         }
-        else if (!enemyBullet && collision.tag == "Enemy")
+        else if (!enemyBullet && collision.CompareTag("Enemy"))
         {
             //collision.GetComponent<Enemy>().GetDamage(damage);
             if (destroyedByCollision)

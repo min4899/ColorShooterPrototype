@@ -7,6 +7,7 @@ public class DestroyAnimation : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        AudioManager.instance.PlaySound("Enemy_Explosion"); // temp
         Destroy(gameObject, this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
         //Destroy(gameObject, this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length + delay);
     }

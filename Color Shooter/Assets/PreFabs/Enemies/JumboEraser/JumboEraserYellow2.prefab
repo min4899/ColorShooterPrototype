@@ -161,6 +161,7 @@ GameObject:
   - component: {fileID: 114293509617355142}
   - component: {fileID: 114138686708688994}
   - component: {fileID: 114359790298350638}
+  - component: {fileID: 95800706118203300}
   m_Layer: 0
   m_Name: JumboEraserYellow2
   m_TagString: Enemy
@@ -647,6 +648,24 @@ PolygonCollider2D:
       - {x: -0.3473805, y: -0.57227683}
       - {x: 0.3238213, y: -0.5565431}
       - {x: 0.58901626, y: 0.44139433}
+--- !u!95 &95800706118203300
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1495576334427582}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d4421922e2e5fa44595663658bec611a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114138686708688994
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -713,10 +732,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27ede04457303ea41844788d1844ee82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 25
+  health: 22
+  points: 250
   colorState: 2
-  destructionVFX: {fileID: 0}
+  destructionVFX: {fileID: 1463374791050038, guid: 76bbf2d9f8449cb4e971faaed8458744,
+    type: 2}
   hitEffect: {fileID: 0}
+  fireSound: Enemy_Fire
+  pointText: {fileID: 1501434277413564, guid: 42bde58417f6812488fa8e66cf7b2a0e, type: 2}
   spawnOnDeath: 1
   fireOnDeath: 0
   DeathOnContact: 0
@@ -734,14 +757,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shot: {fileID: 1536765835146276, guid: 66ce83afaab38344ca2f57e49ac53f72, type: 2}
+  multipleShots: 0
+  multipleShotsBetween: 0
   aim: 0
   aimTransform: {fileID: 0}
   shotSpawn:
   - {fileID: 4450863176147306}
   - {fileID: 4349498729011396}
-  fireRate: 0
+  fireRate: 1
   delay: 1.5
-  sequenceDelay: 0.8
+  sequenceDelay: 1
   burstFire: 0
   burstSize: 0
   burstDelay: 0
@@ -782,7 +807,7 @@ SpriteRenderer:
   m_SortingLayerID: 737667159
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7b5468316a147f9449221c52156acb49, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 06bd991b93053a941b4603fae1d4defc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

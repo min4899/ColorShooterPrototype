@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 114467728023804218}
   - component: {fileID: 114905439288419558}
   - component: {fileID: 114327132678856400}
+  - component: {fileID: 95285370433432350}
   m_Layer: 0
   m_Name: BasicEraserRed
   m_TagString: Enemy
@@ -119,6 +120,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.19759405, y: 0.31062913}
   m_EdgeRadius: 0
+--- !u!95 &95285370433432350
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1795827503225338}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5887a207c6934ed4394743562b140c2f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114327132678856400
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -148,9 +167,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
+  points: 10
   colorState: 1
-  destructionVFX: {fileID: 0}
+  destructionVFX: {fileID: 1571410037624214, guid: fc3ee876fd89a144faa707050b35585e,
+    type: 2}
   hitEffect: {fileID: 0}
+  fireSound: 
+  pointText: {fileID: 1501434277413564, guid: 42bde58417f6812488fa8e66cf7b2a0e, type: 2}
   spawnOnDeath: 0
   fireOnDeath: 0
   DeathOnContact: 1
@@ -176,6 +199,8 @@ MonoBehaviour:
   speed: 0
   rotationByPath: 0
   loop: 0
+  currentPathPercent: 0
+  pathPositions: []
   movingIsActive: 0
 --- !u!212 &212560370595572858
 SpriteRenderer:
@@ -212,7 +237,7 @@ SpriteRenderer:
   m_SortingLayerID: 737667159
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 037162bc33b82424db3994ea974f6cd1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b953ff43e436c274898d9ee7e12eeeff, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

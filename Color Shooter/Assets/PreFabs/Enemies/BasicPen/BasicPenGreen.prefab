@@ -86,7 +86,7 @@ Transform:
   m_GameObject: {fileID: 1955278567532132}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.7, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4959354007317596}
   m_RootOrder: 0
@@ -162,11 +162,11 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.019503266, y: 0.008870006}
-  m_Size: {x: 0.15361017, y: 0.42361665}
+  m_Offset: {x: 0.017175406, y: 0.0018863678}
+  m_Size: {x: 0.19551176, y: 0.43758392}
   m_Direction: 0
 --- !u!114 &114083270914524084
 MonoBehaviour:
@@ -197,9 +197,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
+  points: 30
   colorState: 3
-  destructionVFX: {fileID: 0}
+  destructionVFX: {fileID: 1035284443049602, guid: 6dc8c8e792986b049ac9bfaaf4f011e1,
+    type: 2}
   hitEffect: {fileID: 0}
+  fireSound: Enemy_Fire
+  pointText: {fileID: 1501434277413564, guid: 42bde58417f6812488fa8e66cf7b2a0e, type: 2}
   spawnOnDeath: 0
   fireOnDeath: 0
   DeathOnContact: 0
@@ -240,11 +244,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shot: {fileID: 1777774522103550, guid: e80445d414323a14ab18a9cbc33a8d13, type: 2}
+  multipleShots: 0
+  multipleShotsBetween: 1
   aim: 1
   aimTransform: {fileID: 4959354007317596}
   shotSpawn:
   - {fileID: 4797213232913132}
-  fireRate: 2
+  fireRate: 2.5
   delay: 1.5
   burstFire: 1
   burstSize: 3

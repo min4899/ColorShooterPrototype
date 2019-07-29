@@ -10,15 +10,14 @@ public class PauseMenu : MonoBehaviour {
 
     public GameObject pauseMenuUI;
     public TextMeshProUGUI countDownText;
-    public GameObject player;
+    //public GameObject player;
 
     private PlayerControl playerControl;
 
-    // Use this for initialization
     void Start () {
-        //gameObject.SetActive(false);
+        //playerControl = player.GetComponent<PlayerControl>();
+        playerControl = Player.instance.GetComponent<PlayerControl>();
         Resume();
-        playerControl = player.GetComponent<PlayerControl>();
     }
 	
 	// Update is called once per frame
@@ -37,20 +36,70 @@ public class PauseMenu : MonoBehaviour {
         }
 #endif
     }
+    
+    // COMMENT START: FOR TESTING
+#if UNITY_IOS || UNITY_EDITOR
+    private void OnApplicationFocus(bool focus)
+    {
+        if (focus == false)
+        {
+            if(!GameController.instance.gameOver) // If game is not over, can still pause
+                Pause();
+            MusicManager.instance.Pause();
+        }
+        else
+        {
+            MusicManager.instance.Unpause();
+        }
+    }
+#endif
+
+#if UNITY_ANDROID || UNITY_EDITOR
+    private void OnApplicationPause(bool pause)
+    {
+        if (pause)
+        {
+            if (!GameController.instance.gameOver) // If game is not over, can still pause
+                Pause();
+            MusicManager.instance.Pause();
+        }
+        else
+        {
+            MusicManager.instance.Unpause();
+        }
+    }
+#endif
+    // COMMENT END: FOR TESTING 
 
     public void Resume()
     {
+#if UNITY_IOS || UNITY_ANDROID
         if (Input.touchCount == 1)
         {
             pauseMenuUI.SetActive(false);
             Time.timeScale = 1f;
             GameIsPaused = false;
             //test
-            if (player != null)
+            //if (player != null)
+            if (Player.instance != null)
             {
                 playerControl.enabled = true;
             }
         }
+#endif
+
+#if UNITY_STANDALONE || UNITY_EDITOR
+        pauseMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+        GameIsPaused = false;
+        //test
+        //if (player != null)
+        if (Player.instance != null)
+        {
+            playerControl.enabled = true;
+        }
+#endif
+
     }
 
     public void Pause()
@@ -59,32 +108,32 @@ public class PauseMenu : MonoBehaviour {
         Time.timeScale = 0f;
         GameIsPaused = true;
         //test
-        if (player != null)
+        //if (player != null)
+        if (Player.instance != null)
         {
             playerControl.enabled = false;
         }
-        
     }
 
     public void Restart()
     {
-        if (Input.touchCount == 1)
-        {
+        //if (Input.touchCount == 1)
+        //{
             Time.timeScale = 1f;
             Scene scene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(scene.name);
             //test
             GameIsPaused = false;
-        }
+        //}
     }
 
     public void ReturnToMain()
     {
-        if (Input.touchCount == 1)
-        {
+        //if (Input.touchCount == 1)
+        //{
             Time.timeScale = 1f;
             GameIsPaused = false;
-            SceneManager.LoadScene("MainMenu");
-        }
+            SceneManager.LoadScene("_MainMenu");
+        //}
     }
 }

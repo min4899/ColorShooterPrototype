@@ -9,17 +9,17 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1455599410799860}
+  m_RootGameObject: {fileID: 1460529890006632}
   m_IsPrefabAsset: 1
---- !u!1 &1455599410799860
+--- !u!1 &1460529890006632
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4748956957838188}
-  - component: {fileID: 114576924247202802}
+  - component: {fileID: 4123196681359532}
+  - component: {fileID: 114947273880255660}
   m_Layer: 0
   m_Name: Wave3Controller
   m_TagString: Untagged
@@ -27,12 +27,12 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4748956957838188
+--- !u!4 &4123196681359532
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1455599410799860}
+  m_GameObject: {fileID: 1460529890006632}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -40,12 +40,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114576924247202802
+--- !u!114 &114947273880255660
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1455599410799860}
+  m_GameObject: {fileID: 1460529890006632}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 752ac5c27e329e34398dbcfe7b16fd0f, type: 3}
@@ -54,129 +54,21 @@ MonoBehaviour:
   WaveCombination: 1
   prebuilt: 0
   enemyWaves:
-  - timeToStart: 0.5
-    wave: {fileID: 1097744835850996, guid: 6e2d69c8ca10d1641bc4824f95dbc9dd, type: 2}
-    waveParams:
-      enemy: {fileID: 0}
-      count: 0
-      speed: 0
-      timeBetween: 0
-      rotationByPath: 0
-      Loop: 0
-      nextMovement: {fileID: 0}
-      nextMoveDelay: 0
-      nextMoveSpeed: 0
-      scaleX: 0
-      scaleY: 0
-  - timeToStart: 1
-    wave: {fileID: 1478604774254706, guid: 2f663f18433cebb488c47a2bf7bdc904, type: 2}
-    waveParams:
-      enemy: {fileID: 0}
-      count: 0
-      speed: 0
-      timeBetween: 0
-      rotationByPath: 0
-      Loop: 0
-      nextMovement: {fileID: 0}
-      nextMoveDelay: 0
-      nextMoveSpeed: 0
-      scaleX: 0
-      scaleY: 0
-  - timeToStart: 0.5
-    wave: {fileID: 1725720813200248, guid: 1ffb9f0e88258194b8fa7c49b65fd307, type: 2}
-    waveParams:
-      enemy: {fileID: 0}
-      count: 0
-      speed: 0
-      timeBetween: 0
-      rotationByPath: 0
-      Loop: 0
-      nextMovement: {fileID: 0}
-      nextMoveDelay: 0
-      nextMoveSpeed: 0
-      scaleX: 0
-      scaleY: 0
   - timeToStart: 0
-    wave: {fileID: 1293389595790638, guid: 1ad01dcd996bb7a40b520476260e9462, type: 2}
-    waveParams:
-      enemy: {fileID: 0}
-      count: 0
-      speed: 0
-      timeBetween: 0
-      rotationByPath: 0
-      Loop: 0
-      nextMovement: {fileID: 0}
-      nextMoveDelay: 0
-      nextMoveSpeed: 0
-      scaleX: 0
-      scaleY: 0
-  - timeToStart: 0.5
-    wave: {fileID: 1717687963407560, guid: 8b12266f91d105444a8e00fc1a1c30f4, type: 2}
-    waveParams:
-      enemy: {fileID: 0}
-      count: 0
-      speed: 0
-      timeBetween: 0
-      rotationByPath: 0
-      Loop: 0
-      nextMovement: {fileID: 0}
-      nextMoveDelay: 0
-      nextMoveSpeed: 0
-      scaleX: 0
-      scaleY: 0
-  - timeToStart: 0
-    wave: {fileID: 1023957882411388, guid: 93c912096c5fcb7419932f7defff6ca2, type: 2}
-    waveParams:
-      enemy: {fileID: 0}
-      count: 0
-      speed: 0
-      timeBetween: 0
-      rotationByPath: 0
-      Loop: 0
-      nextMovement: {fileID: 0}
-      nextMoveDelay: 0
-      nextMoveSpeed: 0
-      scaleX: 0
-      scaleY: 0
+    wave: {fileID: 1292835082444304, guid: 8e2a3aa4c7f41eb42b07186f00f2879b, type: 2}
+    enemy: {fileID: 0}
   - timeToStart: 1
-    wave: {fileID: 1368314558731946, guid: f17c7773ee9ed044ca071c5692c31167, type: 2}
-    waveParams:
-      enemy: {fileID: 0}
-      count: 0
-      speed: 0
-      timeBetween: 0
-      rotationByPath: 0
-      Loop: 0
-      nextMovement: {fileID: 0}
-      nextMoveDelay: 0
-      nextMoveSpeed: 0
-      scaleX: 0
-      scaleY: 0
-  - timeToStart: 1.5
-    wave: {fileID: 1294510098946964, guid: 309d4beb61dddde4f94367568c9bcd2f, type: 2}
-    waveParams:
-      enemy: {fileID: 0}
-      count: 0
-      speed: 0
-      timeBetween: 0
-      rotationByPath: 0
-      Loop: 0
-      nextMovement: {fileID: 0}
-      nextMoveDelay: 0
-      nextMoveSpeed: 0
-      scaleX: 0
-      scaleY: 0
-  - timeToStart: 1
-    wave: {fileID: 1023840585827188, guid: 8499024c1d681914cafaf9b124a2a7ee, type: 2}
-    waveParams:
-      enemy: {fileID: 0}
-      count: 0
-      speed: 0
-      timeBetween: 0
-      rotationByPath: 0
-      Loop: 0
-      nextMovement: {fileID: 0}
-      nextMoveDelay: 0
-      nextMoveSpeed: 0
-      scaleX: 0
-      scaleY: 0
+    wave: {fileID: 1240951479682758, guid: 48f2b28466494e94da4757cf460b2b08, type: 2}
+    enemy: {fileID: 0}
+  - timeToStart: 2
+    wave: {fileID: 1498909269777422, guid: e6201142c34dedf4abacdabe81cd158a, type: 2}
+    enemy: {fileID: 0}
+  - timeToStart: 3
+    wave: {fileID: 1855058969909216, guid: aa6d27386a1daaa43a889c489abbbb80, type: 2}
+    enemy: {fileID: 0}
+  - timeToStart: 4
+    wave: {fileID: 1409436195153128, guid: 1a634da8653ad79449a02c531d9f85eb, type: 2}
+    enemy: {fileID: 0}
+  - timeToStart: 5
+    wave: {fileID: 1444228479876396, guid: 44bcb12c1b897dd49919fdf8766c097b, type: 2}
+    enemy: {fileID: 0}

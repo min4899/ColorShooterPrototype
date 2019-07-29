@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour {
     [Tooltip("Health points in integer")]
     public int health = 1;
 
+    public int points;
+
     [Tooltip("no color = 0, red = 1, yellow = 2, green = 3")]
     [Range(0, 3)]
     public int colorState;
@@ -20,11 +22,17 @@ public class Enemy : MonoBehaviour {
 
     [Tooltip("VFX prefab generating after destruction")]
     public GameObject destructionVFX;
+    //public string destructionSound;
     public GameObject hitEffect;
+    public string fireSound;
+    [Tooltip("Score points to display if enemy is destroyed.")]
+    public GameObject pointText;
 
     //[HideInInspector] public int shotChance; //probability of 'Enemy's' shooting during tha path
     //[HideInInspector] public float shotTimeMin, shotTimeMax; //max and min time for shooting from the beginning of the path
 
+    //[Tooltip("If enemy is the final boss of the level, level will end upon its death. Set tag as 'Boss'")]
+    //public bool boss = false;
     [Tooltip("Spawn another enemy on death via SpawnOnDeath Script")]
     public bool spawnOnDeath = false;
     [Tooltip("Spawn projectiles on death")]
@@ -35,6 +43,7 @@ public class Enemy : MonoBehaviour {
     public Material whiteMaterial;
     public SpriteRenderer enemySprite;
     private Material defaultMaterial;
+    //private GameObject gameController;
     #endregion
 
     // Provided Shot Generator
@@ -56,36 +65,21 @@ public class Enemy : MonoBehaviour {
 
     void Start()
     {
+        if(GameController.instance != null)
+        {
+            GameController.instance.enemyCount++;
+        }
+        //GameController.instance.enemyCount++;
         if (enemySprite != null)
         {
             defaultMaterial = enemySprite.GetComponent<SpriteRenderer>().material;
         }
-        /*
-        GameObject gameControllerObject = GameObject.FindWithTag("GameController");
-        if (gameControllerObject != null)
-        {
-            gameController = gameControllerObject.GetComponent<GameController>();
-        }
-        if (gameControllerObject == null)
-        {
-            Debug.Log("Cannot find 'GameController' script");
-        }
-        
-        GameObject playerObject = GameObject.FindWithTag("Player");
-        if(playerObject != null)
-        {
-            playercontrol = playerObject.GetComponent<PlayerControl>();
-        }
-        else
-        {
-            Debug.Log("Cannot find 'PlayerControl' script");
-        }
-        */
     }
 
     //method of getting damage for the 'Enemy'
     public void GetDamage(int damage) 
     {
+        AudioManager.instance.PlaySound("Enemy_Hit");
         health -= damage;           //reducing health for damage value, if health is less than 0, starting destruction procedure
         if (health <= 0)
         {
@@ -125,6 +119,7 @@ public class Enemy : MonoBehaviour {
         // Contact with Player
         if(other.CompareTag("Player"))
         {
+            /*
             // Effect on Player
             switch (colorState)
             {
@@ -143,6 +138,7 @@ public class Enemy : MonoBehaviour {
                 default:
                     break;
             }
+            */
             // Effect on enemy itself
             if (DeathOnContact)
             {
@@ -169,25 +165,6 @@ public class Enemy : MonoBehaviour {
             GetDamage(Player.instance.shotDamage);
             //Destroy(other.gameObject);
         }
-        /*
-        // If player's shot does not match the enemy's color, no damage is taken and the player shot is destroyed.
-        else if (other.CompareTag("PlayerRedShot") && colorState != 1)
-        {
-            Destroy(other.gameObject);
-        }
-        else if (other.CompareTag("PlayerYellowShot") && colorState != 2)
-        {
-            Destroy(other.gameObject);
-        }
-        else if (other.CompareTag("PlayerGreenShot") && colorState != 3)
-        {
-            Destroy(other.gameObject);
-        }
-        */
-        //gameController.AddScore(scoreValue);
-        //gameController.AddScore(scoreValue);
-        //Destroy(other.gameObject); 
-        //Destroy(gameObject); 
     }
 
     IEnumerator TakeDamageEffect()
@@ -203,11 +180,12 @@ public class Enemy : MonoBehaviour {
     }
 
     //method of destroying the 'Enemy'
-    void Destruction()                           
+    public void Destruction()                           
     {        
-        //Instantiate(destructionVFX, transform.position, Quaternion.identity);
         if(destructionVFX != null)
         {
+            //AudioManager.instance.PlaySound(destructionSound);
+            AudioManager.instance.PlaySound("Enemy_Explosion");
             Instantiate(destructionVFX, transform.position, Quaternion.identity);
         }
         if (spawnOnDeath)
@@ -218,6 +196,57 @@ public class Enemy : MonoBehaviour {
         {
             GetComponent<EnemyShooting>().FireUponDeath();
         }
+        //if (boss)
+        if(gameObject.CompareTag("Boss"))
+        {
+            if (GameObject.FindGameObjectsWithTag("Boss").Length <= 1) // If this was the only remaining boss.
+            {
+                //boss = false;
+                if (GameController.instance != null)
+                    GameController.instance.EndLevel();
+            }
+        }
+        SetScore();
         Destroy(gameObject);
+    }
+
+    void SetScore()
+    {
+        // Set overall score earned for killing this enemy
+        int total = 0;
+        if (!Player.instance.CheckShield()) // If player kills an enemy while shield is down, give me more points
+        {
+            total += 20;
+        }
+        if(colorState == GameController.instance.lastColorDestroyed) // killing same color enemies gives combo
+        {
+            GameController.instance.colorCombo++;
+            total += points + points * GameController.instance.colorCombo;
+        }
+        else // not the same color, reset counter
+        {
+            GameController.instance.lastColorDestroyed = colorState;
+            GameController.instance.colorCombo = 0;
+            total += points;
+        }
+
+        // increment enemy killed count and overall score in gamecontroller
+        if (GameController.instance != null)
+        {
+            GameController.instance.enemiesKilled++;
+            GameController.instance.score += total;
+            GameController.instance.UpdateScore();
+        }
+
+        // Activate this enemy's score animation
+        if (pointText != null)
+        {
+            Vector2 screenPosition = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+            GameObject canvas = GameObject.Find("Canvas");
+            GameObject newScoreText = Instantiate(pointText, screenPosition, Quaternion.identity, canvas.transform);
+            //newScoreText.transform.position = screenPosition;
+            newScoreText.GetComponent<ScoreTextController>().SetText(total.ToString());
+            //newScoreText.GetComponent<TextMeshProUGUI>().SetText("+" + total);
+        }
     }
 }

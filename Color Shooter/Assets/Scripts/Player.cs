@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using EZCameraShake;
 
 /// <summary>
 /// This script defines which sprite the 'Player" uses and its health.
@@ -9,9 +11,10 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    public GameObject destructionFX;
     public static Player instance;
 
+    public int health = 1; //test
+    public GameObject destructionFX;
     public Transform shotSpawn;
     public int shotDamage = 1;
     public int contactDamage = 1;
@@ -30,8 +33,10 @@ public class Player : MonoBehaviour
     public GameObject yellowShot;
     public GameObject greenShot;
     public SpriteRenderer playerSprite;
-    public GameObject shield;
+    //public GameObject shield;
+    public Animator shieldAnimator;
     public Material whiteMaterial;
+    public TextMeshProUGUI healthBar;
 
     private GameObject shot;
     private bool shieldOn;
@@ -42,7 +47,10 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null) 
+        // just in case
+        GetComponent<Player>().enabled = true;
+        GetComponent<PlayerControl>().enabled = true;
+        //if (instance == null) 
             instance = this;
     }
 
@@ -50,6 +58,8 @@ public class Player : MonoBehaviour
     {
         shieldOn = true;
         defaultMaterial = playerSprite.GetComponent<SpriteRenderer>().material;
+
+        UpdateHealthText();
 
         // for testing purposes
         if (colorState == 1)
@@ -85,18 +95,42 @@ public class Player : MonoBehaviour
             nextFire = Time.time + fireRate;
             Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
             //GetComponent<AudioSource>().Play();
+            AudioManager.instance.PlaySound("Player_Fire");
         }
     }
 
     //method for damage proceccing by 'Player'
-    public void GetDamage(int damage)
+    public void GetDamage()
     {
-        Destruction();
+        health--;
+        CameraShaker.Instance.ShakeOnce(2f, 2.5f, .1f, 1f);
+        // update text
+        UpdateHealthText();
+        if (health <= 0) // dead
+        {
+            Destruction();
+        }
+        else // not dead
+        {
+            AudioManager.instance.PlaySound("Player_Hit");
+            StartCoroutine(Invincible()); // Give Player short invincibility period 
+        }
+    }
+
+    void UpdateHealthText()
+    {
+        string healthString = "";
+        for (int i = 0; i < health; i++)
+        {
+            healthString += "-";
+        }
+        healthBar.text = healthString;
     }
 
     //'Player's' destruction procedure
     void Destruction()
     {
+        AudioManager.instance.PlaySound("Player_Explosion");
         if (destructionFX != null)
         {
             Instantiate(destructionFX, transform.position, Quaternion.identity); //generating destruction visual effect
@@ -111,38 +145,58 @@ public class Player : MonoBehaviour
         {
             return;
         }
+
         // Only enemy tag and the 3 enemy shots tags should be left.
-        if (!shieldOn) // If player was hit while shield was down, player is killed.
+        if (!shieldOn) // If player was hit while shield was down, player is damaged.
         {
-            Destruction();
+            //Destruction();
+            GetDamage();
         }
-        // NOTE: Contact with an Enemy, see Enemy Script for changing player's state on enemy contact (Line 121).
-        
-        else if (other.CompareTag("EnemyRedShot") && shieldOn)
+
+        // Can't change colors without shield up
+        if (other.CompareTag("EnemyRedShot") && shieldOn)
         {
             ChangeToRed();
-            //Destroy(other.gameObject);
         }
         else if (other.CompareTag("EnemyYellowShot") && shieldOn)
         {
             ChangeToYellow();
-            //Destroy(other.gameObject);
         }
         else if (other.CompareTag("EnemyGreenShot") && shieldOn)
         {
             ChangeToGreen();
-            //Destroy(other.gameObject);
         }
-        //gameController.AddScore(scoreValue);
+        else if((other.CompareTag("Enemy") || other.CompareTag("Boss")) && shieldOn) // direct contact with enemy
+        {
+            switch (other.GetComponent<Enemy>().colorState)
+            {
+                case 0:
+                    ChangeToNeutral();
+                    break;
+                case 1:
+                    ChangeToRed();
+                    break;
+                case 2:
+                    ChangeToYellow();
+                    break;
+                case 3:
+                    ChangeToGreen();
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 
+    /*
     // Short Period of Invincibility after getting hit with shield on.
     IEnumerator Invincible()
     {
         // Invincibility is on.
         GetComponent<CapsuleCollider2D>().enabled = false;
-        //shieldOn = false;
-        shield.SetActive(false);
+        shieldOn = false;
+        shieldAnimator.SetBool("ShieldOn", false);
+        //shield.SetActive(false);
         //Debug.Log("Invincibility on.");
         currInvincibleTime = invincibleTime * 10; // use 10 * seconds of invincible time to get "tenth of a second" unit.
         bool activeSprite = true;
@@ -151,15 +205,11 @@ public class Player : MonoBehaviour
             // flicker affect
             if (activeSprite) // sprite is on
             {
-                //gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.3f);
-                //gameObject.GetComponent<SpriteRenderer>().material = whiteMaterial;
                 playerSprite.material = whiteMaterial;
                 activeSprite = false;
             }
             else // sprite is off
             {
-                //gameObject.GetComponent<SpriteRenderer>().color = Color.white;
-                //gameObject.GetComponent<SpriteRenderer>().material = defaultMaterial;
                 playerSprite.material = defaultMaterial;
                 activeSprite = true;
             }
@@ -168,20 +218,68 @@ public class Player : MonoBehaviour
         }
         //Debug.Log("Invincibility off.");
         GetComponent<CapsuleCollider2D>().enabled = true;
-        //gameObject.GetComponent<SpriteRenderer>().color = Color.white;
-        //gameObject.GetComponent<SpriteRenderer>().material = defaultMaterial;
         playerSprite.material = defaultMaterial;
 
         // Invincibility off. Must wait additional seconds before shield can get back up.
-        shieldOn = false;
+        //shieldOn = false;
         currVulnerableTime = vulernableTime; // use regular seconds
         while (currVulnerableTime > 0)
         {
             yield return new WaitForSeconds(1f); // each second
             currVulnerableTime--;
         }
-        shield.SetActive(true);
+        //shield.SetActive(true);
         shieldOn = true;
+        shieldAnimator.SetBool("ShieldOn", true);
+        AudioManager.instance.PlaySound("Player_Shield_Regen");
+    }
+    */
+
+    // Function to handle shield break and regen
+    IEnumerator ShieldHit()
+    {
+        StartCoroutine(Invincible()); // test
+        AudioManager.instance.PlaySound("Player_Shield_Hit");
+        shieldOn = false;
+        shieldAnimator.SetBool("ShieldOn", false);
+        currVulnerableTime = vulernableTime; // use regular seconds
+        while (currVulnerableTime > 0)
+        {
+            yield return new WaitForSeconds(1f); // each second
+            currVulnerableTime--;
+        }
+        //shield.SetActive(true);
+        shieldOn = true;
+        shieldAnimator.SetBool("ShieldOn", true);
+        AudioManager.instance.PlaySound("Player_Shield_Regen");
+    }
+
+    // Short Period of Invincibility after getting hit/damaged
+    IEnumerator Invincible()
+    {
+        // Invincibility is on.
+        GetComponent<CapsuleCollider2D>().enabled = false;
+        currInvincibleTime = invincibleTime * 10; // use 10 * seconds of invincible time to get "tenth of a second" unit.
+        bool activeSprite = true;
+        while (currInvincibleTime > 0)
+        {
+            // flicker affect
+            if (activeSprite) // sprite is on
+            {
+                playerSprite.material = whiteMaterial;
+                activeSprite = false;
+            }
+            else // sprite is off
+            {
+                playerSprite.material = defaultMaterial;
+                activeSprite = true;
+            }
+            yield return new WaitForSeconds(0.1f); // Each loops is 0.1 seconds (tenth of a second).           
+            currInvincibleTime--;
+        }
+        //Debug.Log("Invincibility off.");
+        playerSprite.material = defaultMaterial;
+        GetComponent<CapsuleCollider2D>().enabled = true;
     }
 
     // Following 4 methods processes the taking damage, effect, and changing states.
@@ -190,7 +288,8 @@ public class Player : MonoBehaviour
         playerSprite.sprite = defaultSprite;
         shot = null;
         colorState = 0;
-        StartCoroutine(Invincible());
+        StartCoroutine(ShieldHit());
+        //StartCoroutine(Invincible());
     }
 
     public void ChangeToRed()
@@ -198,7 +297,8 @@ public class Player : MonoBehaviour
         playerSprite.sprite = red;
         shot = redShot;
         colorState = 1;
-        StartCoroutine(Invincible());
+        StartCoroutine(ShieldHit());
+        //StartCoroutine(Invincible());
     }
 
     public void ChangeToYellow()
@@ -206,7 +306,8 @@ public class Player : MonoBehaviour
         playerSprite.sprite = yellow;
         shot = yellowShot;
         colorState = 2;
-        StartCoroutine(Invincible());
+        StartCoroutine(ShieldHit());
+        //StartCoroutine(Invincible());
     }
 
     public void ChangeToGreen()
@@ -214,7 +315,8 @@ public class Player : MonoBehaviour
         playerSprite.sprite = green;
         shot = greenShot;
         colorState = 3;
-        StartCoroutine(Invincible());
+        StartCoroutine(ShieldHit());
+        //StartCoroutine(Invincible());
     }
 
     public bool CheckShield()

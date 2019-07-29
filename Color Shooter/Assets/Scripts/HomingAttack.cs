@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// Points the bottom of the object to the player.
 public class HomingAttack : MonoBehaviour {
 
     //public Transform target;
@@ -25,11 +27,12 @@ public class HomingAttack : MonoBehaviour {
         {
             target = playerObject.GetComponent<Transform>();
         }
+        /*
         else
         {
             Debug.Log("Cannot find 'PlayerControl' script");
         }
-
+        */
         rb = GetComponent<Rigidbody2D>();
 	}
 
@@ -62,7 +65,7 @@ public class HomingAttack : MonoBehaviour {
             rb.angularVelocity = rotateAmount * rotateSpeed;
             rb.velocity = -transform.up * speed;
 
-            //rb.angularVelocity = -rotateAmouont * rotateSpeed;
+            //rb.angularVelocity = -rotateAmount * rotateSpeed;
             //rb.velocity = transform.up * speed;
         }
         else

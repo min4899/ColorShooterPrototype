@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 4408385671062324}
   - component: {fileID: 212016624009207722}
   m_Layer: 0
-  m_Name: GreenSprite
+  m_Name: RedSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86,7 +86,7 @@ Transform:
   m_GameObject: {fileID: 1788919452034898}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.7, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4902875705250412}
   m_RootOrder: 0
@@ -162,11 +162,11 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.014938563, y: 0.0065876245}
-  m_Size: {x: 0.15361017, y: 0.4190519}
+  m_Offset: {x: 0.019594282, y: 0.0042597055}
+  m_Size: {x: 0.19085592, y: 0.42370772}
   m_Direction: 0
 --- !u!114 &114220643514597844
 MonoBehaviour:
@@ -203,11 +203,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shot: {fileID: 1750965376804278, guid: f36d89dadff2cb444a036187a0a258d5, type: 2}
+  multipleShots: 0
+  multipleShotsBetween: 1
   aim: 1
   aimTransform: {fileID: 4902875705250412}
   shotSpawn:
   - {fileID: 4662163995734558}
-  fireRate: 2
+  fireRate: 2.5
   delay: 1.5
   burstFire: 1
   burstSize: 3
@@ -226,9 +228,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
+  points: 30
   colorState: 1
-  destructionVFX: {fileID: 0}
+  destructionVFX: {fileID: 1571410037624214, guid: fc3ee876fd89a144faa707050b35585e,
+    type: 2}
   hitEffect: {fileID: 0}
+  fireSound: Enemy_Fire
+  pointText: {fileID: 1501434277413564, guid: 42bde58417f6812488fa8e66cf7b2a0e, type: 2}
   spawnOnDeath: 0
   fireOnDeath: 0
   DeathOnContact: 0

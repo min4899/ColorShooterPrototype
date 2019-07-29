@@ -9,17 +9,17 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1194017363772342}
+  m_RootGameObject: {fileID: 1390720477722166}
   m_IsPrefabAsset: 1
---- !u!1 &1194017363772342
+--- !u!1 &1390720477722166
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4459888196806986}
-  - component: {fileID: 114243746582047536}
+  - component: {fileID: 4369565780151552}
+  - component: {fileID: 114100253995020320}
   m_Layer: 0
   m_Name: Wave6Controller
   m_TagString: Untagged
@@ -27,12 +27,12 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4459888196806986
+--- !u!4 &4369565780151552
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1194017363772342}
+  m_GameObject: {fileID: 1390720477722166}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -40,22 +40,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114243746582047536
+--- !u!114 &114100253995020320
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1194017363772342}
+  m_GameObject: {fileID: 1390720477722166}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 752ac5c27e329e34398dbcfe7b16fd0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  master: 0
   WaveCombination: 1
   prebuilt: 0
   enemyWaves:
   - timeToStart: 0
-    wave: {fileID: 1055610385511220, guid: 684fd1f85f881dc408cb8e600cb49362, type: 2}
+    wave: {fileID: 1306152804413756, guid: 1b98393e6f5a4484bb5bea31cd5e43dc, type: 2}
     waveParams:
       enemy: {fileID: 0}
       count: 0
@@ -66,10 +67,10 @@ MonoBehaviour:
       nextMovement: {fileID: 0}
       nextMoveDelay: 0
       nextMoveSpeed: 0
-      scaleX: 0
-      scaleY: 0
-  - timeToStart: 0.5
-    wave: {fileID: 1526869968838746, guid: c05f0a55de93f9f4095cfdbe61668ea5, type: 2}
+      scaleX: 1
+      scaleY: 1
+  - timeToStart: 5
+    wave: {fileID: 1394943136358948, guid: 9e2f6de8454d481408ee8f4d8a2b822d, type: 2}
     waveParams:
       enemy: {fileID: 0}
       count: 0
@@ -80,10 +81,10 @@ MonoBehaviour:
       nextMovement: {fileID: 0}
       nextMoveDelay: 0
       nextMoveSpeed: 0
-      scaleX: 0
-      scaleY: 0
-  - timeToStart: 1
-    wave: {fileID: 1364777954806298, guid: 38f7542d6ad1e2943a17e1323e21335c, type: 2}
+      scaleX: 1
+      scaleY: 1
+  - timeToStart: 10
+    wave: {fileID: 1318959432244490, guid: 9239c31ca16205047a2d00d7253e8b55, type: 2}
     waveParams:
       enemy: {fileID: 0}
       count: 0
@@ -94,61 +95,5 @@ MonoBehaviour:
       nextMovement: {fileID: 0}
       nextMoveDelay: 0
       nextMoveSpeed: 0
-      scaleX: 0
-      scaleY: 0
-  - timeToStart: 1.5
-    wave: {fileID: 1024695258702502, guid: 507d5e1785bd4e74bb9c36185954f010, type: 2}
-    waveParams:
-      enemy: {fileID: 0}
-      count: 0
-      speed: 0
-      timeBetween: 0
-      rotationByPath: 0
-      Loop: 0
-      nextMovement: {fileID: 0}
-      nextMoveDelay: 0
-      nextMoveSpeed: 0
-      scaleX: 0
-      scaleY: 0
-  - timeToStart: 2
-    wave: {fileID: 1245669632930640, guid: b4fe90152e609414fadadc8efa80fa22, type: 2}
-    waveParams:
-      enemy: {fileID: 0}
-      count: 0
-      speed: 0
-      timeBetween: 0
-      rotationByPath: 0
-      Loop: 0
-      nextMovement: {fileID: 0}
-      nextMoveDelay: 0
-      nextMoveSpeed: 0
-      scaleX: 0
-      scaleY: 0
-  - timeToStart: 1
-    wave: {fileID: 1006297357053862, guid: acbf595c36c9ec04686b6ff494f27433, type: 2}
-    waveParams:
-      enemy: {fileID: 0}
-      count: 0
-      speed: 0
-      timeBetween: 0
-      rotationByPath: 0
-      Loop: 0
-      nextMovement: {fileID: 0}
-      nextMoveDelay: 0
-      nextMoveSpeed: 0
-      scaleX: 0
-      scaleY: 0
-  - timeToStart: 2
-    wave: {fileID: 1880333163304646, guid: 8aba38dfcf87cb644a13ea25803fef34, type: 2}
-    waveParams:
-      enemy: {fileID: 0}
-      count: 0
-      speed: 0
-      timeBetween: 0
-      rotationByPath: 0
-      Loop: 0
-      nextMovement: {fileID: 0}
-      nextMoveDelay: 0
-      nextMoveSpeed: 0
-      scaleX: 0
-      scaleY: 0
+      scaleX: 1
+      scaleY: 1

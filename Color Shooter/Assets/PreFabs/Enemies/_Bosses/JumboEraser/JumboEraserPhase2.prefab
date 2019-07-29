@@ -162,9 +162,10 @@ GameObject:
   - component: {fileID: 114216783564885022}
   - component: {fileID: 114771440608537714}
   - component: {fileID: 114513562268458374}
+  - component: {fileID: 95535867192161964}
   m_Layer: 0
   m_Name: JumboEraserPhase2
-  m_TagString: Enemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -176,7 +177,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1969468876070088}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.619, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4964973275094898}
@@ -357,6 +358,24 @@ PolygonCollider2D:
       - {x: -0.36058354, y: -0.6433792}
       - {x: 0.38349837, y: -0.66857433}
       - {x: 0.6700827, y: 0.5421014}
+--- !u!95 &95535867192161964
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1969468876070088}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d4421922e2e5fa44595663658bec611a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114206916479436764
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -369,9 +388,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 45
+  points: 400
   colorState: 2
-  destructionVFX: {fileID: 0}
+  destructionVFX: {fileID: 1463374791050038, guid: 76bbf2d9f8449cb4e971faaed8458744,
+    type: 2}
   hitEffect: {fileID: 0}
+  fireSound: Enemy_Fire
+  pointText: {fileID: 1501434277413564, guid: 42bde58417f6812488fa8e66cf7b2a0e, type: 2}
   spawnOnDeath: 1
   fireOnDeath: 0
   DeathOnContact: 0
@@ -427,6 +450,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shot: {fileID: 1179707416880894, guid: b3724e08d8924354bb0c00afb3e70ab5, type: 2}
+  multipleShots: 0
+  multipleShotsBetween: 1
   aim: 0
   aimTransform: {fileID: 0}
   shotSpawn:
@@ -497,7 +522,7 @@ SpriteRenderer:
   m_SortingLayerID: 737667159
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7b5468316a147f9449221c52156acb49, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 06bd991b93053a941b4603fae1d4defc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
