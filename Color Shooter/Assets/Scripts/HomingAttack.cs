@@ -22,19 +22,13 @@ public class HomingAttack : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        GameObject playerObject = GameObject.FindWithTag("Player");
-        if (playerObject != null)
-        {
-            target = playerObject.GetComponent<Transform>();
-        }
-        /*
-        else
-        {
-            Debug.Log("Cannot find 'PlayerControl' script");
-        }
-        */
         rb = GetComponent<Rigidbody2D>();
-	}
+
+        if (Player.instance != null)
+        {
+            target = Player.instance.GetComponent<Transform>();
+        }
+    }
 
     void Update()
     {

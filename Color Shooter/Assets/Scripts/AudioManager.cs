@@ -37,18 +37,30 @@ public class AudioManager : MonoBehaviour
 
     void Awake()
     {
-        instance = this;
-    }
-
-
-    void Start()
-    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+        //instance = this;
         for (int i = 0; i < sounds.Length; i++)
         {
             GameObject _go = new GameObject("Sound_" + i + "_" + sounds[i].name);
             _go.transform.SetParent(this.transform);
             sounds[i].SetSource(_go.AddComponent<AudioSource>());
         }
+    }
+
+
+    void Start()
+    {
+        /*
+        for (int i = 0; i < sounds.Length; i++)
+        {
+            GameObject _go = new GameObject("Sound_" + i + "_" + sounds[i].name);
+            _go.transform.SetParent(this.transform);
+            sounds[i].SetSource(_go.AddComponent<AudioSource>());
+        }
+        */
     }
 
     public void PlaySound(string _name)

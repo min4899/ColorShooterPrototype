@@ -287,18 +287,20 @@ Prefab:
       propertyPath: m_text
       value: Level Cleared
       objectReference: {fileID: 0}
+    - target: {fileID: 1445965314211262, guid: 459d07a8b6fabb447bfc780b765afd6c, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1249395773026560, guid: 459d07a8b6fabb447bfc780b765afd6c, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 459d07a8b6fabb447bfc780b765afd6c, type: 2}
   m_IsPrefabAsset: 0
 --- !u!114 &515566875 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114675110630242388, guid: 459d07a8b6fabb447bfc780b765afd6c,
-    type: 2}
-  m_PrefabInternal: {fileID: 515566874}
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
---- !u!114 &515566876 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114565686711205226, guid: 459d07a8b6fabb447bfc780b765afd6c,
+  m_CorrespondingSourceObject: {fileID: 114991131756495720, guid: 459d07a8b6fabb447bfc780b765afd6c,
     type: 2}
   m_PrefabInternal: {fileID: 515566874}
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
@@ -330,6 +332,16 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 515566874}
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+--- !u!1 &515566882 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1776430212954564, guid: 459d07a8b6fabb447bfc780b765afd6c,
+    type: 2}
+  m_PrefabInternal: {fileID: 515566874}
+--- !u!1 &515566883 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1249395773026560, guid: 459d07a8b6fabb447bfc780b765afd6c,
+    type: 2}
+  m_PrefabInternal: {fileID: 515566874}
 --- !u!1 &537216683
 GameObject:
   m_ObjectHideFlags: 0
@@ -650,16 +662,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countDownText: {fileID: 515566880}
   level: {fileID: 471380582}
-  scoreDisplay: {fileID: 515566881}
-  gameOverScreen: {fileID: 515566878}
+  hud: {fileID: 515566882}
+  scoreDisplay: {fileID: 515566875}
+  multiplierDisplay: {fileID: 515566881}
+  continueScreen: {fileID: 515566878}
+  gameOverScreen: {fileID: 515566883}
   levelClearedScreen: {fileID: 515566877}
-  finalScore: {fileID: 515566876}
-  killCount: {fileID: 515566875}
   endLevelDelay: 2
   score: 0
   enemiesKilled: 0
   enemyCount: 0
+  playerObject: {fileID: 1114863733166462, guid: 5d398862929359140b1390fce317c5cb,
+    type: 2}
   gameOver: 0
+  lastColorDestroyed: 0
+  colorCombo: 0
+  deaths: 0
+  maxHealth: 0
 --- !u!4 &840994469
 Transform:
   m_ObjectHideFlags: 0

@@ -63,6 +63,12 @@ public class PlayerControl : MonoBehaviour
         if (Input.GetMouseButton(0)) //if mouse button was pressed       
         {
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); //calculating mouse position in the worldspace
+
+            if(mousePosition.y > 4.1f)
+            {
+                return;
+            }
+
             mousePosition = new Vector2
             (
                 Mathf.Clamp(mousePosition.x, boundary.xMin, boundary.xMax),

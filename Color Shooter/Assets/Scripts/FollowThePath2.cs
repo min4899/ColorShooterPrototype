@@ -9,10 +9,11 @@ public class FollowThePath2 : MonoBehaviour {
     [HideInInspector] public float speed;
     [HideInInspector] public bool rotationByPath;   //whether 'Enemy' rotates in path direction or not
     [HideInInspector] public bool loop;         //if loop is true, 'Enemy' returns to the path starting point after completing the path
-    float currentPathPercent;               //current percentage of completing the path
-    Vector3[] pathPositions;                //path points in vector3
+    [HideInInspector] public float currentPathPercent;               //current percentage of completing the path
+    [HideInInspector] public Vector3[] pathPositions;                //path points in vector3
     [HideInInspector] public bool movingIsActive = false;   //whether 'Enemy' moves or not
     [HideInInspector] public float delay;
+    [HideInInspector] public float spawnOnDeathDelay;
 
     //test
     private Vector2 lastDirection;
@@ -22,6 +23,7 @@ public class FollowThePath2 : MonoBehaviour {
     void Start()
     {
         StartCoroutine(Wait());
+        spawnOnDeathDelay = delay;
     }
 
     IEnumerator Wait()
@@ -72,6 +74,11 @@ public class FollowThePath2 : MonoBehaviour {
                 }
             }
         }
+
+        //new delay for spawnondeath child
+        spawnOnDeathDelay -= Time.deltaTime;
+        if (spawnOnDeathDelay < 0)
+            spawnOnDeathDelay = 0;
     }
 
     Vector3 NewPositionByPath(Vector3[] pathPos, float percent)

@@ -7,6 +7,7 @@ public class EnemyShooting2 : MonoBehaviour
 {
     [Tooltip("Object to be used as shots, use parent of multiple shots to shoot different types of shots.")]
     public GameObject shot;
+    public string fireSound = "Enemy_Fire";
     [Tooltip("Select to shoot multiple types of shots. Use parent of multiple types of shots in 'shot' param")]
     public bool multipleShots = false;
     [Tooltip("How many shots is to be fired before switching to the next shot type")]
@@ -31,23 +32,27 @@ public class EnemyShooting2 : MonoBehaviour
     public int burstSize;
     public float burstDelay;
 
+    /*
     [Tooltip("Projectiles to be shot out upon death, see Enemy script for activation.")]
     public Transform[] deathSpawn;
     public GameObject deathShot;
+    */
 
     private Transform player; // used for player aiming
     private GameObject currentShot;
     private int shotIndex;
     private int multipleShotsBetweenCounter;
-    private string fireSound;
+    //private string fireSound;
 
     // Use this for initialization
     void Start()
     {
+        /*
         if (gameObject.GetComponent<Enemy>() != null)
         {
             fireSound = gameObject.GetComponent<Enemy>().fireSound;
         }
+        */
         if (multipleShots) // if using multiple shot types
         {
             shotIndex = 0;
@@ -58,6 +63,7 @@ public class EnemyShooting2 : MonoBehaviour
         {
             currentShot = shot;
         }
+        /*
         if (aim)
         {
             GameObject playerObject = GameObject.FindWithTag("Player");
@@ -66,6 +72,7 @@ public class EnemyShooting2 : MonoBehaviour
                 player = playerObject.GetComponent<Transform>();
             }
         }
+        */
         if (burstFire)
         {
             StartCoroutine(BurstFire());
@@ -79,8 +86,9 @@ public class EnemyShooting2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (aim && player != null)
+        if (aim && Player.instance != null) // constantly update reference to player's location
         {
+            player = Player.instance.GetComponent<Transform>();
             aimTransform.up = player.position - aimTransform.position;
         }
     }
@@ -147,6 +155,7 @@ public class EnemyShooting2 : MonoBehaviour
         }
     }
 
+    /*
     public void FireUponDeath()
     {
         //Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
@@ -156,6 +165,7 @@ public class EnemyShooting2 : MonoBehaviour
             Instantiate(shot, deathSpawn[i].position, deathSpawn[i].rotation);
         }
     }
+    */
 
     void NextShot()
     {

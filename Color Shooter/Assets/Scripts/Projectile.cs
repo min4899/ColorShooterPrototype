@@ -19,6 +19,9 @@ public class Projectile : MonoBehaviour {
     [Tooltip("Whether the projectile is destroyed in the collision, or not")]
     public bool destroyedByCollision = true;
 
+    [Tooltip("If any changes are made to the projectile in mid air. (physics calc moved to Update)")]
+    public bool speedChange = false;
+
     private Rigidbody2D rb; // from mover script
                             
     // Use this for initialization
@@ -29,6 +32,14 @@ public class Projectile : MonoBehaviour {
         rb.velocity = transform.up * speed;
     }
 
+    void FixedUpdate() // test
+    {
+        if(speedChange)
+        {
+            rb.velocity = transform.up * speed;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision) //when a projectile collides with another object
     {
         if (enemyBullet && collision.CompareTag("Player")) // shots will only be destoryed if it hits player or enemy
@@ -37,7 +48,8 @@ public class Projectile : MonoBehaviour {
             if (destroyedByCollision)
                 Destruction();
         }
-        else if (!enemyBullet && collision.CompareTag("Enemy"))
+        //else if (!enemyBullet && collision.CompareTag("Enemy"))
+        else if (!enemyBullet && (collision.CompareTag("Enemy") || collision.CompareTag("Boss")))
         {
             //collision.GetComponent<Enemy>().GetDamage(damage);
             if (destroyedByCollision)

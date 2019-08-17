@@ -45,6 +45,8 @@ public class Player : MonoBehaviour
     private float nextFire;
     private Material defaultMaterial;
 
+    private bool isColliding; // to prevent collider from triggering twice if hit by 2 objects simultaneously
+
     private void Awake()
     {
         // just in case
@@ -81,14 +83,8 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        /*
-        if (shot != null && Input.GetButton("Fire1") && Time.time > nextFire)
-        {
-            nextFire = Time.time + fireRate;
-            Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
-            //GetComponent<AudioSource>().Play();
-        }
-        */
+        isColliding = false;
+
         //constantly fire
         if (shot != null && Time.time > nextFire)
         {
@@ -136,15 +132,25 @@ public class Player : MonoBehaviour
             Instantiate(destructionFX, transform.position, Quaternion.identity); //generating destruction visual effect
         }
         //Instantiate(destructionFX, transform.position, Quaternion.identity); //generating destruction visual effect
+        if(GameController.instance != null)
+        {
+            GameController.instance.deaths++; // increment death counter
+        }
         Destroy(gameObject);
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        if(isColliding)
+        {
+            return;
+        }
         if (other.CompareTag("Boundary") || other.CompareTag("PlayerRedShot") || other.CompareTag("PlayerYellowShot") || other.CompareTag("PlayerGreenShot"))
         {
             return;
         }
+
+        isColliding = true;
 
         // Only enemy tag and the 3 enemy shots tags should be left.
         if (!shieldOn) // If player was hit while shield was down, player is damaged.
@@ -166,24 +172,31 @@ public class Player : MonoBehaviour
         {
             ChangeToGreen();
         }
+        else if(other.CompareTag("EnemyNeutralShot") && shieldOn)
+        {
+            ChangeToNeutral();
+        }
         else if((other.CompareTag("Enemy") || other.CompareTag("Boss")) && shieldOn) // direct contact with enemy
         {
-            switch (other.GetComponent<Enemy>().colorState)
+            if (other.GetComponent<Enemy>() != null)
             {
-                case 0:
-                    ChangeToNeutral();
-                    break;
-                case 1:
-                    ChangeToRed();
-                    break;
-                case 2:
-                    ChangeToYellow();
-                    break;
-                case 3:
-                    ChangeToGreen();
-                    break;
-                default:
-                    break;
+                switch (other.GetComponent<Enemy>().colorState)
+                {
+                    case 0:
+                        ChangeToNeutral();
+                        break;
+                    case 1:
+                        ChangeToRed();
+                        break;
+                    case 2:
+                        ChangeToYellow();
+                        break;
+                    case 3:
+                        ChangeToGreen();
+                        break;
+                    default:
+                        break;
+                }
             }
         }
     }
@@ -242,12 +255,15 @@ public class Player : MonoBehaviour
         AudioManager.instance.PlaySound("Player_Shield_Hit");
         shieldOn = false;
         shieldAnimator.SetBool("ShieldOn", false);
+        /*
         currVulnerableTime = vulernableTime; // use regular seconds
         while (currVulnerableTime > 0)
         {
             yield return new WaitForSeconds(1f); // each second
             currVulnerableTime--;
         }
+        */
+        yield return new WaitForSeconds(vulernableTime);
         //shield.SetActive(true);
         shieldOn = true;
         shieldAnimator.SetBool("ShieldOn", true);

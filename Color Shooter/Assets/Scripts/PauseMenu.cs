@@ -10,20 +10,32 @@ public class PauseMenu : MonoBehaviour {
 
     public GameObject pauseMenuUI;
     public TextMeshProUGUI countDownText;
+    public GameObject hud;
     //public GameObject player;
 
-    private PlayerControl playerControl;
+    //private PlayerControl playerControl;
+    private Coroutine currentCountDown;
 
     void Start () {
-        //playerControl = player.GetComponent<PlayerControl>();
-        playerControl = Player.instance.GetComponent<PlayerControl>();
-        Resume();
+        //Resume();
+        pauseMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+        GameIsPaused = false;
+        //test
+        //if (player != null)
+        /*
+        if (Player.instance != null)
+        {
+            playerControl.enabled = true;
+        }
+        */
     }
 	
 	// Update is called once per frame
 	void Update () {
 #if UNITY_STANDALONE || UNITY_EDITOR
-        if (Input.GetKeyDown(KeyCode.Escape))
+        //if (Input.GetKeyDown(KeyCode.Escape) && !GameController.instance.gameOver)
+        if (Input.GetKeyDown(KeyCode.Escape) && Player.instance != null)
         {
             if(GameIsPaused)
             {
@@ -36,6 +48,7 @@ public class PauseMenu : MonoBehaviour {
         }
 #endif
     }
+
     
     // COMMENT START: FOR TESTING
 #if UNITY_IOS || UNITY_EDITOR
@@ -43,7 +56,8 @@ public class PauseMenu : MonoBehaviour {
     {
         if (focus == false)
         {
-            if(!GameController.instance.gameOver) // If game is not over, can still pause
+            //if(!GameController.instance.gameOver) // If game is not over, can still pause
+            if (Player.instance != null && hud.activeSelf) // player still alive
                 Pause();
             MusicManager.instance.Pause();
         }
@@ -59,7 +73,8 @@ public class PauseMenu : MonoBehaviour {
     {
         if (pause)
         {
-            if (!GameController.instance.gameOver) // If game is not over, can still pause
+            //if (!GameController.instance.gameOver) // If game is not over, can still pause
+            if (Player.instance != null && hud.activeSelf) // player still alive
                 Pause();
             MusicManager.instance.Pause();
         }
@@ -71,55 +86,79 @@ public class PauseMenu : MonoBehaviour {
 #endif
     // COMMENT END: FOR TESTING 
 
+
     public void Resume()
     {
 #if UNITY_IOS || UNITY_ANDROID
         if (Input.touchCount == 1)
         {
             pauseMenuUI.SetActive(false);
-            Time.timeScale = 1f;
+            //Time.timeScale = 1f;
             GameIsPaused = false;
-            //test
-            //if (player != null)
+            /*
             if (Player.instance != null)
             {
                 playerControl.enabled = true;
             }
+            */
+            currentCountDown = StartCoroutine(CountDownResume()); // test
         }
 #endif
 
 #if UNITY_STANDALONE || UNITY_EDITOR
         pauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
+        //Time.timeScale = 1f;
         GameIsPaused = false;
-        //test
-        //if (player != null)
+        /*
         if (Player.instance != null)
         {
             playerControl.enabled = true;
         }
+        */
+        currentCountDown = StartCoroutine(CountDownResume()); // test
 #endif
+    }
 
+    IEnumerator CountDownResume()
+    {
+        Time.timeScale = 0.45f;
+        countDownText.enabled = true;
+        countDownText.text = "3";
+        yield return new WaitForSeconds(0.45f);
+        countDownText.text = "2";
+        yield return new WaitForSeconds(0.45f);
+        countDownText.text = "1";
+        yield return new WaitForSeconds(0.45f);
+        countDownText.enabled = false;
+        Time.timeScale = 1f;
     }
 
     public void Pause()
     {
+        if (currentCountDown != null) // if game is paused during the countdown, cancel it
+        {
+            StopCoroutine(currentCountDown);
+        }
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
-        //test
-        //if (player != null)
+        /*
         if (Player.instance != null)
         {
             playerControl.enabled = false;
         }
+        */
     }
 
     public void Restart()
     {
+        if (currentCountDown != null) // if game is in countdownresume, cancel it
+        {
+            StopCoroutine(currentCountDown);
+        }
         //if (Input.touchCount == 1)
         //{
-            Time.timeScale = 1f;
+        Time.timeScale = 1f;
             Scene scene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(scene.name);
             //test
@@ -129,11 +168,27 @@ public class PauseMenu : MonoBehaviour {
 
     public void ReturnToMain()
     {
+        if (currentCountDown != null) // if game is in countdownresume, cancel it
+        {
+            StopCoroutine(currentCountDown);
+        }
         //if (Input.touchCount == 1)
         //{
-            Time.timeScale = 1f;
+        Time.timeScale = 1f;
             GameIsPaused = false;
             SceneManager.LoadScene("_MainMenu");
         //}
+    }
+
+    public void Respawn()
+    {
+        GameController.instance.RespawnPlayer();
+        Resume(); // give slow motion upon respawn
+    }
+
+    public void GiveUp()
+    {
+        Time.timeScale = 1f;
+        GameController.instance.GameOver();
     }
 }

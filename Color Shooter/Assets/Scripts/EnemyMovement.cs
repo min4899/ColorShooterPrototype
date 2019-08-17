@@ -21,17 +21,28 @@ public class EnemyMovement : MonoBehaviour {
     private float targetManeuver;
     */
     private Rigidbody2D rb;
+    public Boundary boundary;
 
     // Use this for initialization
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        //rb.velocity = transform.up * verticalSpeed; // use negative to down the screen
+        rb.velocity = transform.up * verticalSpeed; // use negative to down the screen
 
         //currentSpeed = rb.velocity.y;
         //StartCoroutine(Evade());
 
-        StartCoroutine(MovementProcess());
+        //StartCoroutine(MovementProcess());
+    }
+
+    void Update()
+    {
+        //GetComponent<Rigidbody2D>().position = new Vector2
+        rb.position = new Vector2
+        (
+            Mathf.Clamp(rb.position.x, boundary.xMin, boundary.xMax),
+            Mathf.Clamp(rb.position.y, boundary.yMin, boundary.yMax)
+        );
     }
 
     /*

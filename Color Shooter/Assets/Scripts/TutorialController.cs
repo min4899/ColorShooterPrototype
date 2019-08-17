@@ -24,8 +24,10 @@ public class TutorialController : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (!GameController.instance.gameOver)
+        if (!GameController.instance.gameOver && !PauseMenu.GameIsPaused) // if game is over or paused, do not show texts
         {
+            tutorialTextParent.SetActive(true);
+
             if (wave == 0) // 1st: Move ship by swiping at the screen
             {
                 // if player already moved

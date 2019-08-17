@@ -175,7 +175,6 @@ MonoBehaviour:
   destructionVFX: {fileID: 1035284443049602, guid: 6dc8c8e792986b049ac9bfaaf4f011e1,
     type: 2}
   hitEffect: {fileID: 0}
-  fireSound: Enemy_Fire
   pointText: {fileID: 1501434277413564, guid: 42bde58417f6812488fa8e66cf7b2a0e, type: 2}
   spawnOnDeath: 0
   fireOnDeath: 0
@@ -234,6 +233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shot: {fileID: 1464597617282452, guid: 53b46fb6be012ec459be69bed5286095, type: 2}
+  fireSound: Enemy_Fire
   multipleShots: 0
   multipleShotsBetween: 1
   aim: 1
@@ -245,8 +245,6 @@ MonoBehaviour:
   burstFire: 0
   burstSize: 0
   burstDelay: 0
-  deathSpawn: []
-  deathShot: {fileID: 0}
 --- !u!212 &212495109814423644
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour {
     public GameObject destructionVFX;
     //public string destructionSound;
     public GameObject hitEffect;
-    public string fireSound;
+    //public string fireSound;
     [Tooltip("Score points to display if enemy is destroyed.")]
     public GameObject pointText;
 
@@ -42,6 +42,7 @@ public class Enemy : MonoBehaviour {
 
     public Material whiteMaterial;
     public SpriteRenderer enemySprite;
+
     private Material defaultMaterial;
     //private GameObject gameController;
     #endregion
@@ -194,7 +195,8 @@ public class Enemy : MonoBehaviour {
         }
         if(fireOnDeath)
         {
-            GetComponent<EnemyShooting>().FireUponDeath();
+            //GetComponent<EnemyShooting>().FireUponDeath();
+            GetComponent<FireOnDeath>().FireUponDeath();
         }
         //if (boss)
         if(gameObject.CompareTag("Boss"))
@@ -218,24 +220,30 @@ public class Enemy : MonoBehaviour {
         {
             total += 20;
         }
-        if(colorState == GameController.instance.lastColorDestroyed) // killing same color enemies gives combo
-        {
-            GameController.instance.colorCombo++;
-            total += points + points * GameController.instance.colorCombo;
-        }
-        else // not the same color, reset counter
-        {
-            GameController.instance.lastColorDestroyed = colorState;
-            GameController.instance.colorCombo = 0;
-            total += points;
-        }
 
         // increment enemy killed count and overall score in gamecontroller
         if (GameController.instance != null)
         {
+            if (colorState == GameController.instance.lastColorDestroyed) // killing same color enemies gives combo
+            {
+                GameController.instance.colorCombo++;
+                //total += points + points * GameController.instance.colorCombo;
+            }
+            else // not the same color, reset counter
+            {
+                GameController.instance.lastColorDestroyed = colorState;
+                GameController.instance.colorCombo = 1;
+                //total += points;
+            }
+            total += points * GameController.instance.colorCombo;
             GameController.instance.enemiesKilled++;
             GameController.instance.score += total;
             GameController.instance.UpdateScore();
+            GameController.instance.UpdateMultiplier();
+        }
+        else // gamecontroller not on (for testing in editor), just give standard amount of points
+        {
+            total += points;
         }
 
         // Activate this enemy's score animation
