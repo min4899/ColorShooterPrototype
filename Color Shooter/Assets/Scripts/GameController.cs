@@ -138,6 +138,7 @@ public class GameController : MonoBehaviour {
     //IEnumerator Continue() // continue screen pop up
     IEnumerator Continue()
     {
+        gameOver = true; // temporary
         activeScreen = false;
         float timer = 1f;
         for(int i = 0; i < 5; i++) // slow down time to stop
@@ -160,6 +161,7 @@ public class GameController : MonoBehaviour {
         continueScreen.SetActive(false);
         hud.SetActive(true);
         activeScreen = true;
+        gameOver = false;
         Debug.Log("Player succesfully respawned.");
     }
 
@@ -168,6 +170,7 @@ public class GameController : MonoBehaviour {
         activeScreen = false;
         continueScreen.SetActive(false);
         gameOverScreen.SetActive(true);
+        gameOver = true;
         Debug.Log("Player chose to give up, Game Over.");
     }
 

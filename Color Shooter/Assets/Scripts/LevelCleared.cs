@@ -7,7 +7,8 @@ using BayatGames.SaveGameFree;
 
 public class LevelCleared : MonoBehaviour
 {
-
+    public GameObject mainMenuButton;
+    public GameObject infoButton;
     public TextMeshProUGUI finalScore;
     public TextMeshProUGUI killCount;
     public GameObject stars;
@@ -20,12 +21,16 @@ public class LevelCleared : MonoBehaviour
     private int deaths;
     private int health;
     private int maxHealth;
-
     private int finalStars;
+
+    private GameObject currentCanvas;
 
     // Use this for initialization
     void Start ()
     {
+        currentCanvas = gameObject.transform.GetChild(0).gameObject;
+        currentCanvas.SetActive(true); // set level cleared screen as active on start
+        gameObject.transform.GetChild(1).gameObject.SetActive(false); // set star rating info screen as nonactive on start
         finalScore.enabled = false;
         killCount.enabled = false;
         stars.SetActive(false);
@@ -57,7 +62,7 @@ public class LevelCleared : MonoBehaviour
             finalStars = 3;
             stars.transform.GetChild(2).gameObject.SetActive(true);
         }
-        else if (percentKilled >= 0.8f)
+        else if (percentKilled >= 0.75f)
         {
             finalStars = 2;
             stars.transform.GetChild(1).gameObject.SetActive(true);
@@ -133,8 +138,8 @@ public class LevelCleared : MonoBehaviour
         MusicManager.instance.Pause();
 
         // Initially disable the texts and button
-        GameObject mainMenuButton = gameObject.transform.Find("MenuButton").gameObject;
         mainMenuButton.SetActive(false);
+        infoButton.SetActive(false);
         finalScore.enabled = false;
         killCount.enabled = false;
 
@@ -153,5 +158,21 @@ public class LevelCleared : MonoBehaviour
         stars.SetActive(true);
         yield return new WaitForSeconds(1);
         mainMenuButton.SetActive(true);
+        infoButton.SetActive(true);
+    }
+
+    public void LevelClearedMainMenuButton()
+    {
+        Time.timeScale = 1f;
+        PauseMenu.GameIsPaused = false;
+        AdManager.instance.ShowRegularAd();
+        SceneManager.LoadScene("_MainMenu");
+    }
+
+    public void GotoOption(GameObject selection)
+    {
+        selection.SetActive(true); // set selected menu active
+        currentCanvas.SetActive(false); 
+        currentCanvas = selection;
     }
 }

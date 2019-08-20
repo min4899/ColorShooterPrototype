@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using BayatGames.SaveGameFree;
 
 [System.Serializable]
 public class Sound
@@ -35,6 +36,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     Sound[] sounds;
 
+    private bool soundOn;
+
     void Awake()
     {
         if(instance == null)
@@ -50,31 +53,30 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-
     void Start()
     {
-        /*
-        for (int i = 0; i < sounds.Length; i++)
-        {
-            GameObject _go = new GameObject("Sound_" + i + "_" + sounds[i].name);
-            _go.transform.SetParent(this.transform);
-            sounds[i].SetSource(_go.AddComponent<AudioSource>());
-        }
-        */
+        soundOn = SaveGame.Load<bool>("SoundOn");
     }
 
     public void PlaySound(string _name)
     {
-        for (int i = 0; i < sounds.Length; i++)
+        if (soundOn)
         {
-            if(sounds[i].name == _name)
+            for (int i = 0; i < sounds.Length; i++)
             {
-                sounds[i].Play();
-                return;
+                if (sounds[i].name == _name)
+                {
+                    sounds[i].Play();
+                    return;
+                }
             }
+            // No audio with this name is found.
+            Debug.LogWarning("AudioManager: Sound not found in list: " + _name);
         }
+    }
 
-        // No audio with this name is found.
-        Debug.LogWarning("AudioManager: Sound not found in list: " + _name);
+    public void SetSoundOption()
+    {
+        soundOn = SaveGame.Load<bool>("SoundOn");
     }
 }

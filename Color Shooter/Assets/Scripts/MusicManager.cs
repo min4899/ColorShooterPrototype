@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using BayatGames.SaveGameFree;
 
 [System.Serializable]
 public class Music
@@ -23,13 +24,14 @@ public class MusicManager : MonoBehaviour {
     public Music bossMusic;
 
     private AudioSource source;
+    private bool musicOn;
 
     void Awake()
     {
         instance = this;
         source = GetComponent<AudioSource>();
+        SetMusicOption();
     }
-
 
     void Start()
     {
@@ -57,5 +59,14 @@ public class MusicManager : MonoBehaviour {
         source.volume = bossMusic.volume;
         source.pitch = bossMusic.pitch;
         source.Play();
+    }
+
+    public void SetMusicOption()
+    {
+        musicOn = SaveGame.Load<bool>("MusicOn");
+        if (musicOn)
+            source.enabled = true;
+        else
+            source.enabled = false;
     }
 }

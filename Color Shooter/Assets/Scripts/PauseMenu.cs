@@ -6,6 +6,7 @@ using TMPro;
 
 public class PauseMenu : MonoBehaviour {
 
+    public static PauseMenu instance;
     public static bool GameIsPaused = false;
 
     public GameObject pauseMenuUI;
@@ -15,6 +16,11 @@ public class PauseMenu : MonoBehaviour {
 
     //private PlayerControl playerControl;
     private Coroutine currentCountDown;
+
+    void Awake()
+    {
+        instance = this;
+    }
 
     void Start () {
         //Resume();
@@ -93,7 +99,7 @@ public class PauseMenu : MonoBehaviour {
         if (Input.touchCount == 1)
         {
             pauseMenuUI.SetActive(false);
-            //Time.timeScale = 1f;
+            Time.timeScale = 1f;
             GameIsPaused = false;
             /*
             if (Player.instance != null)
@@ -101,13 +107,13 @@ public class PauseMenu : MonoBehaviour {
                 playerControl.enabled = true;
             }
             */
-            currentCountDown = StartCoroutine(CountDownResume()); // test
+            currentCountDown = StartCoroutine(CountDownResume());
         }
 #endif
 
 #if UNITY_STANDALONE || UNITY_EDITOR
         pauseMenuUI.SetActive(false);
-        //Time.timeScale = 1f;
+        Time.timeScale = 1f;
         GameIsPaused = false;
         /*
         if (Player.instance != null)
@@ -115,7 +121,7 @@ public class PauseMenu : MonoBehaviour {
             playerControl.enabled = true;
         }
         */
-        currentCountDown = StartCoroutine(CountDownResume()); // test
+        currentCountDown = StartCoroutine(CountDownResume());
 #endif
     }
 
@@ -158,7 +164,7 @@ public class PauseMenu : MonoBehaviour {
         }
         //if (Input.touchCount == 1)
         //{
-        Time.timeScale = 1f;
+            Time.timeScale = 1f;
             Scene scene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(scene.name);
             //test
@@ -175,16 +181,37 @@ public class PauseMenu : MonoBehaviour {
         //if (Input.touchCount == 1)
         //{
         Time.timeScale = 1f;
-            GameIsPaused = false;
-            SceneManager.LoadScene("_MainMenu");
+        GameIsPaused = false;
+        AdManager.instance.ShowRegularAd(); // test
+        SceneManager.LoadScene("_MainMenu");
         //}
     }
 
+    public void ShowAd()
+    {
+        AdManager.instance.ShowRewardedAd();
+    }
+
+    
     public void Respawn()
     {
+        Time.timeScale = 1f;
         GameController.instance.RespawnPlayer();
+        //Resume(); // give slow motion upon respawn
+        pauseMenuUI.SetActive(false);
+        GameIsPaused = false;
+        currentCountDown = StartCoroutine(CountDownResume());
+    }
+    
+
+    /*
+    public IEnumerator Respawn()
+    {
+        GameController.instance.RespawnPlayer();
+        yield return new WaitForSeconds(0.5f);
         Resume(); // give slow motion upon respawn
     }
+    */
 
     public void GiveUp()
     {
